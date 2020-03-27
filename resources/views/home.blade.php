@@ -1,7 +1,3 @@
-
-
-
-
 @extends('layouts.head')
 @section('head')
 
