@@ -6,7 +6,7 @@
     <meta name="keywords" content="Sona, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sona | Template</title>
+        <title>Sistema Integrado de Serviços - SisNorte</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
@@ -58,7 +58,7 @@
         </div>
         <nav class="mainmenu mobile-menu">
             <ul>
-                <li class="active"><a href="./index.blade.php">Início</a></li>
+                <li class="active"><a href="{{route('index')}}">Início</a></li>
                 <li><a href="./rooms.html">Rooms</a></li>
                 <li><a href="./about-us.html">About Us</a></li>
                 <li><a href="./pages.html">Pages</a>
@@ -138,7 +138,7 @@
                         <div class="nav-menu">
                             <nav class="mainmenu">
                                 <ul>
-                                    <li class="active"><a href="./index.html">Início</a></li>
+                                    <li class="active"><a href="{{route('index')}}">Início</a></li>
                                     <li><a href="./blog.html">Empresa</a></li>
                                     <li><a href="./rooms.html">Serviços</a></li>
                                     <li><a href="./about-us.html">Profissões</a></li>

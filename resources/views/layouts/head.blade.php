@@ -60,7 +60,7 @@
         </div>
         <nav class="mainmenu mobile-menu">
             <ul>
-                <li class="active"><a href="./index.blade.php">Início</a></li>
+                <li class="active"><a href="{{route('index')}}">Início</a></li>
                 <li><a href="./rooms.html">Rooms</a></li>
                 <li><a href="./about-us.html">About Us</a></li>
                 <li><a href="./pages.html">Pages</a>
@@ -112,7 +112,7 @@
                             <div class="language-option">
                                 <img src="img/flag.jpg" alt="">
                                 <span>sair<!--<i class="fa fa-angle-down"></i>--></span>
-                                <div class="flag-dropdown">
+                                <div  class="flag-dropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -146,7 +146,7 @@
                         <div class="nav-menu">
                             <nav class="mainmenu">
                                 <ul>
-                                    <li class="active"><a href="./index.html">Home</a></li>
+                                    <li class="active"><a href="{{route('index')}}">Início</a></li>
                                     <li><a href="./rooms.html">Rooms</a></li>
                                     <li><a href="./about-us.html">About Us</a></li>
                                     <li><a href="./pages.html">Pages</a>

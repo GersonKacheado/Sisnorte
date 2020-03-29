@@ -19,12 +19,19 @@ Route::get('/', ['uses'=> 'IndexController@homepage'])->name('index');
 //Route::resource('cliente', 'ClienteController');
 Route::resource('user', 'UserController');
 //Route::post('cliente/buscar', 'ClienteController@buscar');
-Route::resource('empresa', 'EmpresaController');
-Route::resource('funcionario', 'FuncionarioController');
-Route::resource('recebe', 'RecebeController');
-Route::resource('service', 'ServiceController');
-Route::resource('solicito', 'SolicitoController');
-Route::resource('usuario', 'UsuarioController');
+
+    Route::resource('empresa', 'EmpresaController')->middleware('auth:admin');
+    Route::resource('funcionario', 'FuncionarioController')->middleware('auth:admin');
+    Route::resource('recebe', 'RecebeController')->middleware('auth:admin');
+    Route::resource('service', 'ServiceController')->middleware('auth:admin');
+    Route::resource('solicito', 'SolicitoController');
+    Route::resource('usuario', 'UsuarioController');
+
+
+    
+    
+
+
 
 /*
 Route::get("/about-us.php", function () {
@@ -49,7 +56,9 @@ Route::get("/blog-details.php", function () {
 */
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')
+->name('home')
+->middleware('auth');
 
 Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
 

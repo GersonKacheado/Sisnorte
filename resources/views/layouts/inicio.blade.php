@@ -94,13 +94,20 @@
         <div class="top-nav">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6">
-                        <ul class="tn-left">
-                            <li><i class="fa fa-phone"></i> (096) XXXX XXXX</li>
+
+                    <div class="col-lg-3">
+                        <div class="tn-right">
+
+                        <a href="{{ route('admin.dashboard') }}" class="bk-btn">{{ Auth::user()->name }}</a>
+
+                      <!--  <ul class="tn-left">
                             <li><i class="fa fa-envelope"></i> exemplo@gmail.com</li>
-                        </ul>
+                        </ul> -->
                     </div>
-                    <div class="col-lg-6">
+                    </div>
+
+
+                    <div class="col-lg-9">
                         <div class="tn-right">
                             <div class="top-social">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
@@ -108,14 +115,22 @@
                                 <a href="#"><i class="fa fa-tripadvisor"></i></a>
                                 <a href="#"><i class="fa fa-instagram"></i></a>
                             </div>
-                            <a href="#" class="bk-btn">Painel Administrativo</a>
+                        <a href="{{ route('admin.dashboard') }}" class="bk-btn">Painel Administrativo</a>
                             <div class="language-option">
-                                <img src="img/hero/hero-3.jpg" alt="">
-                                <span>Acess<i class="fa fa-angle-down"></i></span>
-                                <div class="flag-dropdown">
-                                    <ul>
-                                        <li><a href="#">ok</a></li>
-                                        <li><a href="#">by</a></li>
+                                <img src="img/flag.jpg" alt="">
+                                <span>sair<!--<i class="fa fa-angle-down"></i>--></span>
+                                <div  class="flag-dropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('sair') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                    <!--<ul>
+                                        <li><a href="#">Zi</a></li>
+                                        <li><a href="#">Fr</a></li>-->
                                     </ul>
                                 </div>
                             </div>
@@ -138,7 +153,9 @@
                         <div class="nav-menu">
                             <nav class="mainmenu">
                                 <ul>
-                                    <li class="active"><a href="{{route('solicito.index')}}">Pedidos</a>
+                                    <li class="active"><a href="{{route('index')}}">Início</a></li>
+
+                                    <li><a href="{{route('solicito.index')}}">Pedidos</a>
                                     <ul class="dropdown">
                                             <li><a href="{{route('solicito.create')}}">Novo</a></li>
                                         </ul>
@@ -155,7 +172,6 @@
                                     </li>
                                     <li><a href="{{route('empresa.index')}}">Empresa</a>                                       
                                     </li>
-                                    <li><a href="./blog.html">News</a></li>
                                     <li><a href="./contact.html">Contact</a></li>
                                 </ul>
                             </nav>
