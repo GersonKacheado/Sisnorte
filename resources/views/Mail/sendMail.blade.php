@@ -8,7 +8,7 @@
 </head>
 <body>
     <h3>Redefinição de senha</h3>
-    <p>Escolher Nova senha</p>
+    <p>Escolher !Nova senha</p>
     
 </body>
 </html>
