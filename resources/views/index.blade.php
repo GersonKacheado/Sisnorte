@@ -8,21 +8,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Sistema Integrado de Serviços - SisNorte</title>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
+        <link href="{{asset('https://fonts.googleapis.com/css?family=Lora:400,700&display=swap')}}" rel="stylesheet">
+        <link href="{{asset('https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap')}}" rel="stylesheet">
+    
+        <!-- Css Styles -->
 
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="css/flaticon.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+        <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{asset('css/elegant-icons.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{asset('css/flaticon.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{asset('css/nice-select.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{asset('css/jquery-ui.min.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{asset('css/magnific-popup.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{asset('css/slicknav.min.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{asset('css/style.css')}}" type="text/css">
 </head>
 
 <body>
@@ -45,7 +45,7 @@
         </div>
         <div class="header-configure-area">
             <div class="language-option">
-                <img src="img/flag.jpg" alt="">
+                <img src="{{asset('img/flag.jpg')}}" alt="">
                 <span>EN <i class="fa fa-angle-down"></i></span>
                 <div class="flag-dropdown">
                     <ul>
@@ -130,7 +130,7 @@
                     <div class="col-lg-2">
                         <div class="logo">
                             <a href="./index.html">
-                                <img src="img/logo.png" alt="">
+                                <img src="{{asset('img/logo.png')}}" alt="">
                             </a>
                         </div>
                     </div>
@@ -211,9 +211,9 @@
             </div>
         </div>
         <div class="hero-slider owl-carousel">
-            <div class="hs-item set-bg" data-setbg="img/hero/hero-1.jpg"></div>
-            <div class="hs-item set-bg" data-setbg="img/hero/hero-2.jpg"></div>
-            <div class="hs-item set-bg" data-setbg="img/hero/hero-3.jpg"></div>
+            <div class="hs-item set-bg" data-setbg="{{asset('img/hero/hero-1.jpg')}}"></div>
+            <div class="hs-item set-bg" data-setbg="{{asset('img/hero/hero-2.jpg')}}"></div>
+            <div class="hs-item set-bg" data-setbg="{{asset('img/hero/hero-3.jpg')}}"></div>
         </div>
     </section>
     <!-- Hero Section End -->
@@ -240,10 +240,10 @@
                     <div class="about-pic">
                         <div class="row">
                             <div class="col-sm-6">
-                                <img src="img/about/about-1.jpg" alt="">
+                                <img src="{{asset('img/about/about-1.jpg')}}" alt="">
                             </div>
                             <div class="col-sm-6">
-                                <img src="img/about/about-2.jpg" alt="">
+                                <img src="{{asset('img/about/about-2.jpg')}}" alt="">
                             </div>
                         </div>
                     </div>
@@ -319,7 +319,7 @@
             <div class="hp-room-items">
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
-                        <div class="hp-room-item set-bg" data-setbg="img/service/eletrica.jpg">
+                        <div class="hp-room-item set-bg" data-setbg="{{asset('img/service/eletrica.jpg')}}">
                             <div class="hr-text">
                                 <h3>Instalações Elétricas</h3>
                                <!-- <h2>159$<span>/Pernight</span></h2>-->
@@ -377,7 +377,7 @@
                         </div>
                     </div>-->
                     <div class="col-lg-3 col-md-6">
-                        <div class="hp-room-item set-bg" data-setbg="img/service/hidraulica.jpg">
+                        <div class="hp-room-item set-bg" data-setbg="{{asset('img/service/hidraulica.jpg')}}">
                             <div class="hr-text">
                                 <h3>Reparos Hidráulicos</h3>
                                <!-- <h2>159$<span>/Pernight</span></h2>-->
@@ -407,7 +407,7 @@
                     </div>
 
                     <div class="col-lg-3 col-md-6">
-                        <div class="hp-room-item set-bg" data-setbg="img/service/pintura.jpg">
+                        <div class="hp-room-item set-bg" data-setbg="{{asset('img/service/pintura.jpg')}}">
                             <div class="hr-text">
                                 <h3>Pinturas em Geral</h3>
                                <!-- <h2>159$<span>/Pernight</span></h2>-->
@@ -437,7 +437,7 @@
                     </div>
 
                     <div class="col-lg-3 col-md-6">
-                        <div class="hp-room-item set-bg" data-setbg="img/service/dedez.jpg">
+                        <div class="hp-room-item set-bg" data-setbg="{{asset('img/service/dedez.jpg')}}">
                             <div class="hr-text">
                                 <h3>Dedetização</h3>
                               <!--  <h2>299$<span>/Pernight</span></h2> -->
@@ -500,7 +500,7 @@
                                 </div>
                                 <h5> - Alexander Vasquez</h5>
                             </div>
-                            <img src="img/testimonial-logo.png" alt="">
+                            <img src="{{asset('img/testimonial-logo.png')}}" alt="">
                         </div>
                         <div class="ts-item">
                             <p>After a construction project took longer than expected, my husband, my daughter and I
@@ -517,7 +517,7 @@
                                 </div>
                                 <h5> - Alexander Vasquez</h5>
                             </div>
-                            <img src="img/testimonial-logo.png" alt="">
+                            <img src="{{asset('img/testimonial-logo.png')}}" alt="">
                         </div>
                     </div>
                 </div>
@@ -539,7 +539,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="blog-item set-bg" data-setbg="img/blog/blog-1.jpg">
+                    <div class="blog-item set-bg" data-setbg="{{asset('img/blog/blog-1.jpg')}}">
                         <div class="bi-text">
                             <span class="b-tag">Travel Trip</span>
                             <h4><a href="#">Tremblant In Canada</a></h4>
@@ -548,7 +548,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="blog-item set-bg" data-setbg="img/blog/blog-2.jpg">
+                    <div class="blog-item set-bg" data-setbg="{{asset('img/blog/blog-2.jpg')}}">
                         <div class="bi-text">
                             <span class="b-tag">Camping</span>
                             <h4><a href="#">Choosing A Static Caravan</a></h4>
@@ -557,7 +557,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="blog-item set-bg" data-setbg="img/blog/blog-3.jpg">
+                    <div class="blog-item set-bg" data-setbg="{{asset('img/blog/blog-3.jpg')}}">
                         <div class="bi-text">
                             <span class="b-tag">Event</span>
                             <h4><a href="#">Copper Canyon</a></h4>
@@ -566,7 +566,7 @@
                     </div>
                 </div>
                 <div class="col-lg-8">
-                    <div class="blog-item small-size set-bg" data-setbg="img/blog/blog-wide.jpg">
+                    <div class="blog-item small-size set-bg" data-setbg="{{asset('img/blog/blog-wide.jpg')}}">
                         <div class="bi-text">
                             <span class="b-tag">Event</span>
                             <h4><a href="#">Trip To Iqaluit In Nunavut A Canadian Arctic City</a></h4>
@@ -575,7 +575,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="blog-item small-size set-bg" data-setbg="img/blog/blog-10.jpg">
+                    <div class="blog-item small-size set-bg" data-setbg="{{asset('img/blog/blog-10.jpg')}}">
                         <div class="bi-text">
                             <span class="b-tag">Travel</span>
                             <h4><a href="#">Traveling To Barcelona</a></h4>

@@ -17,14 +17,14 @@
 Route::get('/', ['uses'=> 'IndexController@homepage'])->name('index');
 
 //Route::resource('cliente', 'ClienteController');
-Route::resource('user', 'UserController');
+Route::resource('user', 'UserController')->middleware('auth:admin');
 //Route::post('cliente/buscar', 'ClienteController@buscar');
 
     Route::resource('empresa', 'EmpresaController')->middleware('auth:admin');
     Route::resource('funcionario', 'FuncionarioController')->middleware('auth:admin');
     Route::resource('recebe', 'RecebeController')->middleware('auth:admin');
     Route::resource('service', 'ServiceController')->middleware('auth:admin');
-    Route::resource('solicito', 'SolicitoController');
+    Route::resource('solicito', 'SolicitoController')->middleware('auth:admin');
     Route::resource('usuario', 'UsuarioController');
 
 
@@ -33,11 +33,11 @@ Route::resource('user', 'UserController');
 
 
 
-/*
-Route::get("/about-us.php", function () {
-    return view('about-us');
-});
 
+Route::get("envio-email", function () {
+    return new \App\Mail\sendMail();
+});
+/*
 Route::get("/blog.php", function () {
     return view('blog');
 });

@@ -9,22 +9,22 @@
         <title>Sistema Integrado de Serviços - SisNorte</title>
     
         <!-- Google Font -->
-        <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
+        <link href="{{asset('https://fonts.googleapis.com/css?family=Lora:400,700&display=swap')}}" rel="stylesheet">
+        <link href="{{asset('https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap')}}" rel="stylesheet">
     
         <!-- Css Styles -->
 
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="css/flaticon.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-
+        <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{asset('css/elegant-icons.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{asset('css/flaticon.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{asset('css/nice-select.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{asset('css/jquery-ui.min.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{asset('css/magnific-popup.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{asset('css/slicknav.min.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{asset('css/style.css')}}" type="text/css">
+    
 </head>
     
     <body>
@@ -47,7 +47,7 @@
         </div>
         <div class="header-configure-area">
             <div class="language-option">
-                <img src="img/flag.jpg" alt="">
+                <img src="{{asset('img/flag.jpg')}}" alt="">
                 <span>EN <i class="fa fa-angle-down"></i></span>
                 <div class="flag-dropdown">
                     <ul>
@@ -98,7 +98,8 @@
                     <div class="col-lg-3">
                         <div class="tn-right">
 
-                        <a href="{{ route('admin.dashboard') }}" class="bk-btn">{{ Auth::user()->name }}</a>
+                        <a href="{{ route('admin.dashboard') }}" 
+                        class="bk-btn">{{ Auth::user()->name }}</a>
 
                       <!--  <ul class="tn-left">
                             <li><i class="fa fa-envelope"></i> exemplo@gmail.com</li>
@@ -117,7 +118,7 @@
                             </div>
                         <a href="{{ route('admin.dashboard') }}" class="bk-btn">Painel Administrativo</a>
                             <div class="language-option">
-                                <img src="img/flag.jpg" alt="">
+                                <img src="{{asset('img/flag.jpg')}}" alt="">
                                 <span>sair<!--<i class="fa fa-angle-down"></i>--></span>
                                 <div  class="flag-dropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -145,7 +146,7 @@
                     <div class="col-lg-2">
                         <div class="logo">
                             <a href="./index.html">
-                                <img src="img/logo.png" alt="">
+                                <img src="{{asset('img/logo.png')}}" alt="">
                             </a>
                         </div>
                     </div>
@@ -187,13 +188,13 @@
         @yield('inicio')   
 
 
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
+        <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
+        <script src="{{asset('js/bootstrap.min.js')}}"></script>
+        <script src="{{asset('js/jquery.magnific-popup.min.js')}}"></script>
+        <script src="{{asset('js/jquery.nice-select.min.js')}}"></script>
+        <script src="{{asset('js/jquery-ui.min.js')}}"></script>
+        <script src="{{asset('js/jquery.slicknav.js')}}"></script>
+        <script src="{{asset('js/owl.carousel.min.js')}}"></script>
+        <script src="{{asset('js/main.js')}}"></script>
     </body>
 </html>
