@@ -41,15 +41,38 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $regras = [
+            'name'     => 'required | min:2 | max:50 | alpha',
+            'telefone' => 'required | numeric | regex:/(0)[0-9]{11}/',
+            'email'    => 'required | email',
+            'password' => 'required | min:8 | confirmed'
+        ];
+        $mensagens = [
+            'name.required' => 'Digite seu nome!',
+            'name.min'      => 'O campo nome deve conter no mínimo 2 caracteres!',
+            'name.max'      => 'O campo nome deve conter no máximo 50 caracteres!',
+            'name.alpha'    => 'O campo nome deve conter apenas letras!',
+            'telefone.required' => 'Digite seu número de telefone!',
+            'telefone.numeric'  => 'O campo telefone deve  conter apenas números!',
+            'telefone.regex'    => 'Digite um número de telefone Válido! EX: 096988110099',
+            'email.required'    => 'Digite seu endereço de e-mail',
+            'email.email'       => 'Digite um e-mail Válido!',
+            'password.required' => 'Digite sua senha!',
+            'password.min'      => 'Digite no mínimo 8 caracteres!',
+            'password.confirmed' => 'Por favor, digite novamente e confirme sua senha!'
+        ];
+        $request->validate($regras, $mensagens);
+
+
         $users = new User;
-        $users->name = $request->name;
+        $users->name = $request->input('name');
         $users->telefone = $request->telefone;
         $users->email = $request->email;
 
 //        $users->email = $request->email;
         $users->password = bcrypt($request->password);
         $users->save();
-     //   return redirect()->route('user.index');
+        return redirect()->route('user.index');
     }
 
     /**
