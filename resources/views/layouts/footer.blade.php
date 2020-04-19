@@ -28,7 +28,7 @@
     
 <body>
      <!-- Footer Section Begin -->
-     <footer class="footer-section">
+     <footer class="footer-section" id="contato">
         <div class="container">
             <div class="footer-text">
                 <div class="row">
@@ -78,8 +78,8 @@
                 <div class="row">
                     <div class="col-lg-7">
                         <ul>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Terms of use</a></li>
+                        <li><a href="{{route('index')}}">Início</a></li>
+                            <li><a href="#servicos">Serviços</a></li>
                             <li><a href="#">Privacy</a></li>
                             <li><a href="#">Environmental Policy</a></li>
                         </ul>
@@ -114,6 +114,7 @@
     <script src="{{asset('js/jquery-ui.min.js')}}"></script>
     <script src="{{asset('js/jquery.slicknav.js')}}"></script>
     <script src="{{asset('js/owl.carousel.min.js')}}"></script>
-    <script src="{{asset('js/main.js')}}"></script> @yield('rodape')
+    <script src="{{asset('js/main.js')}}"></script> 
+    @yield('rodape')
 </body>
 </html>

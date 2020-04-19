@@ -139,10 +139,10 @@
                             <nav class="mainmenu">
                                 <ul>
                                     <li class="active"><a href="{{route('index')}}">Início</a></li>
-                                    <li><a href="./blog.html">Empresa</a></li>
-                                    <li><a href="./rooms.html">Serviços</a></li>
-                                    <li><a href="./about-us.html">Profissões</a></li>
-                                    <li><a href="./pages.html">Contato</a>
+                                    <li><a href="#empresa">Empresa</a></li>
+                                    <li><a href="#servicos">Serviços</a></li>
+                                    <li><a href="">Profissões</a></li>
+                                    <li><a href="#contato">Contato</a>
                                       <!--  <ul class="dropdown">
                                             <li><a href="./room-details.html">Room Details</a></li>
                                             <li><a href="./blog-details.html">Blog Details</a></li>
@@ -150,7 +150,7 @@
                                             <li><a href="#">Premium Room</a></li>
                                         </ul>-->
                                     </li>
-                                    <li><a href="./contact.html">Trabalhe conosco</a></li>
+                                    <li><a href="">Trabalhe conosco</a></li>
                                 </ul>
                             </nav>
                             <div class="nav-right search-switch">
@@ -224,16 +224,16 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="about-text">
-                        <div class="section-title">
-                            <span>About Us</span>
-                            <h2>Intercontinental LA <br />Westlake Hotel</h2>
+                        <div class="section-title" id="empresa">
+                            <span>A Empresa</span>
+                            <h2>NORTE DEDETIZAÇÃO Ltda</h2>
                         </div>
                         <p class="f-para">Sona.com is a leading online accommodation site. We’re passionate about
                             travel. Every day, we inspire and reach millions of travelers across 90 local websites in 41
                             languages.</p>
                         <p class="s-para">So when it comes to booking the perfect hotel, vacation rental, resort,
                             apartment, guest house, or tree house, we’ve got you covered.</p>
-                        <a href="#" class="primary-btn about-btn">Read More</a>
+                        <a href="#contato" class="primary-btn about-btn">Mais Informações</a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -258,7 +258,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="section-title">
+                    <div class="section-title" id="servicos">
                         <span>Mais Vantagens</span>
                         <h2>Sobre Nossos Serviços</h2>
                     </div>
