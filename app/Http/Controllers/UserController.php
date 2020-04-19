@@ -44,7 +44,7 @@ class UserController extends Controller
         $regras = [
             'name'     => 'required | min:2 | max:50 | alpha',
             'telefone' => 'required | numeric | regex:/(0)[0-9]{11}/',
-            'email'    => 'required | email',
+            'email'    => 'required | email | unique:users',
             'password' => 'required | min:8 | confirmed'
         ];
         $mensagens = [
@@ -57,6 +57,7 @@ class UserController extends Controller
             'telefone.regex'    => 'Digite um número de telefone Válido! EX: 096988110099',
             'email.required'    => 'Digite seu endereço de e-mail',
             'email.email'       => 'Digite um e-mail Válido!',
+            'email.unique'      => 'E-mail já registrado! Digite Outro E-mail ou vá em Recuperar Senha.',
             'password.required' => 'Digite sua senha!',
             'password.min'      => 'Digite no mínimo 8 caracteres!',
             'password.confirmed' => 'Por favor, digite novamente e confirme sua senha!'
