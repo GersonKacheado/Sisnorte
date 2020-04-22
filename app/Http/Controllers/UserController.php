@@ -42,18 +42,18 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $regras = [
-            'name'     => 'required | min:2 | max:50 | alpha',
+            'name'     => 'required | string | min:2 | max:50  ',
             'telefone' => 'required | numeric | regex:/(0)[0-9]{11}/',
             'email'    => 'required | email | unique:users',
-            'password' => 'required | min:8 | confirmed',
-            'password_confirmation' => 'required | '
+            'password' => 'required | string | min:8 | confirmed ',
+            'password_confirmation' => 'required | ' 
 
         ];
         $mensagens = [
             'name.required' => 'Digite seu nome!',
             'name.min'      => 'O campo nome deve conter no mínimo 2 caracteres!',
             'name.max'      => 'O campo nome deve conter no máximo 50 caracteres!',
-            'name.alpha'    => 'O campo nome deve conter apenas letras!',
+            'name.string' => 'Por favor, Digite um nome Válido!',
             'telefone.required' => 'Digite seu número de telefone!',
             'telefone.numeric'  => 'O campo telefone deve  conter apenas números!',
             'telefone.regex'    => 'Digite um número de telefone Válido! EX: 096988110099',
@@ -61,7 +61,9 @@ class UserController extends Controller
             'email.email'       => 'Digite um e-mail Válido!',
             'email.unique'      => 'E-mail já registrado! Digite Outro E-mail ou vá em Recuperar Senha.',
             'password.required' => 'Digite sua senha!',
+            'password.string' => 'Por favor! Digite um valor Válido',
             'password.min'      => 'Digite no mínimo 8 caracteres!',
+
             'password.confirmed' => 'As senhas não são iguais! Por favor, digite novamente e confirme!',
             'password_confirmation.required' => 'Confirmação Obrigatória!',
 
@@ -122,17 +124,17 @@ class UserController extends Controller
     {
 
         $regras = [
-            'name'     => 'required | min:2 | max:50 | alpha',
+            'name'     => 'required | string | min:2 | max:50  ',
             'telefone' => 'required | numeric | regex:/(0)[0-9]{11}/',
             'email'    => 'required|email|unique:users,email,'. $id,
-            'password' => 'required | min:8 | confirmed',
+            'password' => 'required | string | min:8 | confirmed ',
             'password_confirmation' => 'required | '
         ];
         $mensagens = [
             'name.required' => 'Digite nome Válido!',
             'name.min'      => 'O campo nome deve conter no mínimo 2 caracteres!',
             'name.max'      => 'O campo nome deve conter no máximo 50 caracteres!',
-            'name.alpha'    => 'O campo nome deve conter apenas letras!',
+            'name.string' => 'Por favor, Digite um nome Válido!',            
             'telefone.required' => 'Digite seu número de telefone!',
             'telefone.numeric'  => 'O campo telefone deve  conter apenas números!',
             'telefone.regex'    => 'Digite um número de telefone Válido! EX: 096988110099',
@@ -140,6 +142,7 @@ class UserController extends Controller
             'email.email'       => 'Digite um e-mail Válido!',
             'email.unique'      => 'E-mail já registrado! Digite Outro E-mail ou vá em Recuperar Senha.',
             'password.required' => 'Digite sua senha e confirme!',
+            'password.string' => 'Por favor! Digite um valor Válido',
             'password.min'      => 'Digite no mínimo 8 caracteres!',
             'password.confirmed' => 'As senhas não são iguais! Por favor, digite novamente e confirme!',
             'password_confirmation.required' => 'Confirmação Obrigatória!',
