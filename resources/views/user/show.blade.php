@@ -8,7 +8,7 @@
 <div class="container">
     <div class="card text-center">
         <div class="card-header">
-            Registro de {{ $user->id }}
+            Registro {{ $user->id }}
         </div>
         <div class="card-body">
             <table class="table table-hover">
@@ -28,17 +28,17 @@
                         <td>{{ $user->telefone }}</td>
                         <td>{{ $user->email }}</td>
                       {{--  <td>{{ $user->password }}</td>--}}
+                      <td>
+                        <a href="{{ route('user.edit', $user->id) }}" class="btn btn-outline-warning">Editar</a>
+                        <a href="{{ route('user.index') }}" class="btn btn-outline-info">Voltar</a>
+                    </td>
                         <td>
                             <form action="{{ route('user.destroy', $user->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                         <button type="submit" class="btn btn-outline-danger">Apagar</button>                        
                     </form>
-                        </td>
-                        <td>
-                            <a href="{{ route('user.index') }}" class="btn btn-outline-secondary">Voltar</a>
-
-                        </td>
+                        </td>                      
                     </tr>
                 </tbody>
             </table>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Solicito;
 
 
+
 class SolicitoController extends Controller
 {
     /**
@@ -15,7 +16,9 @@ class SolicitoController extends Controller
      */
     public function index()
     {
-        $solicitos = Solicito::All();
+       // $solicitos = Solicito::All();
+       $solicitos = Solicito::paginate(10);
+
         return view('solicito.index', array('solicitos' => $solicitos, 'busca'=>null));
     }
 
@@ -37,8 +40,34 @@ class SolicitoController extends Controller
      */
     public function store(Request $request)
     {
+        $regras = [
+            'tipo' => 'required |',
+            'estado' => 'required |',
+            'municipio' => 'required |',
+            'bairro' => 'required | min:3',
+            'rua' => 'required | min:2',
+            'numero' => 'required | min:1',
+            'complemento' => 'required |',
+        ];
+        $mensagens = [
+            'tipo.required' => 'Escolha uma das Opções!',
+            'estado.required' => 'Escolha esta Opção!',
+            'municipio.required' => 'Escolha uma das Opções!',
+            'bairro.required' => 'É necessario Preencher este campo!',
+            'bairro.min' => 'Digite pelo 3 (três) caracteres!',
+            'rua.required' => 'É necessario Preencher este campo!',
+            'rua.min' => 'Digite pelo menos 2 (dois), caracteres!',
+            'numero.required' => 'É necessario Preencher este campo!',
+            'numero.min' => 'Digite pelo menos 1 (um) número!',
+            'complemento.required' => 'É necessario Preencher este campo!'
+
+        ];
+        $request->validate($regras, $mensagens);
+
+       
+       // dd(auth()->user());
         $solicito = new Solicito;
-        $solicito->users_id = Auth()->id();
+        $solicito->users_id = auth()->id();
         $solicito->tipo = $request->tipo;
         $solicito->estado = $request->estado;
         $solicito->municipio = $request->municipio;
@@ -47,7 +76,7 @@ class SolicitoController extends Controller
         $solicito->numero = $request->numero;
         $solicito->complemento = $request->complemento;
         $solicito->save();
-        return redirect()->route('solicito.index');
+        return redirect()->route('index');
     }
 
     /**

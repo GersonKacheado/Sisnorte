@@ -99,7 +99,7 @@
                         <div class="tn-right">
 
                         <a href="{{ route('admin.dashboard') }}" 
-                        class="bk-btn">{{ Auth::user()->name }}</a>
+                        class="bk-btn">{{-- Auth::user()->name --}}</a>
 
                       <!--  <ul class="tn-left">
                             <li><i class="fa fa-envelope"></i> exemplo@gmail.com</li>
@@ -126,7 +126,8 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('sair') }}
                                     </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    <form id="logout-form" action="{{ route('logout') }}" 
+                                    method="POST" style="display: none;">
                                         @csrf
                                     </form>
                                     <!--<ul>

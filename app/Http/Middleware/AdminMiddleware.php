@@ -20,4 +20,13 @@ class AdminMiddleware
    }
         return redirect('admin.login');
     }
+
+   /* public function handle($request, Closure $next)
+    {
+        $usuario = \Auth::user();
+        if($usuario !== null && $usuario->administrador){
+        return $next($request);
+   }
+        return redirect('admin.login');
+    }*/
 }

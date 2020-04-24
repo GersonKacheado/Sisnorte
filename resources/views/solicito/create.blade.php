@@ -1,4 +1,4 @@
-    @if(count($errors) > 0)
+    {{-- @if(count($errors) > 0)
     <div class="alert alert-danger">
       <ul>
         @foreach ($errors->all() as $error)
@@ -6,7 +6,7 @@
         @endforeach
       </ul>
     </div>
-    @endif
+    @endif --}}
 <form action="{{ route('solicito.store') }}" method="post"  class="request-form ftco-animate" >
     @csrf
     <h2>Cadastro de Pedido</h2>
@@ -29,7 +29,7 @@
   </div>
   <div class="form-group ml-2">
      <label for="" class="label">BAIRRO:</label>
-     <input type="text" name="bairro" class="form-control" autocomplete="off" required  placeholder="">
+     <input type="text" name="bairro" class="form-control" autocomplete="off"   placeholder="">
    </div>     
 </div> 
 
@@ -40,7 +40,7 @@
   </div>
   <div class="form-group ml-2">
      <label for="" class="label">NUMERO:</label>
-     <input type="text" name="numero" class="form-control" autocomplete="off" required  placeholder="">
+     <input type="text" name="numero" class="form-control" autocomplete="off"   placeholder="">
    </div>     
 </div> 
 
