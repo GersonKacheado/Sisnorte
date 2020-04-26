@@ -1,22 +1,27 @@
 
 @extends('layouts.inicio')
 @section('inicio')
-<h2>Lista de empresas</h2>
-
-<form method="POST" action="empresa/buscar" >
+<div class="container">
+    <div class="card text-center">
+       {{-- <div class="card-header">
+            Listagem de {{ $users->count() }} clientes no total de {{ $users->total() }} 
+            exibindo agora registros de ({{ $users->firstItem() }}) a ({{ $users->lastItem() }})
+        </div> --}}
+{{-- <form method="POST" action="empresa/buscar" >
     @csrf
     <input name="text" type="text" placeholder="ajeitar bug aqui">
     <button type="submit">buscar</button>
-</form>
+</form> --}}
+<div class="card-body">
 
-<hr>
-<table border="1">
-    <thead>
+    <table class="table table-hover">
+        <thead>
         <tr>
-            <th>Nome Fantasia</th>
-            <th>Cnpj</th>
-            <th>Mais Informações</th>
-        </tr>
+            <th scope="col">NOME FANTASIA</th>
+            <th scope="col">CNPJ</th>
+            <th scope="col">GERENCIAR INFORMAÇÕES</th>
+            <th><a href="{{ route('empresa.create') }}" class="btn btn-outline-success">+ Criar Novo</a>
+       </tr>
     </thead>
     <tbody>
     @foreach ($empresas as $empresa)
@@ -33,6 +38,14 @@
 
     </tbody>
 </table>
+</div>
 
 <a href="{{ route('empresa.create', $empresa->id) }}">Criar Novo</a>
+{{-- <div class="card-footer">
+    {{ $users->links() }}
+</div> --}}
+
+    </div>
+</div>
+
 @endsection

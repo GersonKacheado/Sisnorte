@@ -90,8 +90,7 @@
             <div class="d-flex">
                 <div class="form-group ml-2">
                     <input type="submit" name="btnEnviar" class="btn btn-success">
-
-                            <a href="{{ route('user.index') }}" class="btn btn-primary">Voltar</a>
+                    <a href="{{ route('user.index') }}" class="btn btn-primary">Voltar</a>
                 </div>
             </div>                                                                     
         </form>

@@ -36,6 +36,18 @@ class EmpresaController extends Controller
      */
     public function store(Request $request)
     {
+        $regras = [
+            'nomefantasia' => 'required |',
+            'razaosocial' => 'required |',
+            'cnpj' => 'required |'
+        ];
+        $mensagens = [
+            'nomefantasia.required' => 'O preenchimento deste campo é obrigatório!',
+            'razaosocial.required' => 'O preenchimento deste campo é obrigatório!',
+            'cnpj.required' => 'O preenchimento deste campo é obrigatório!'
+        ];
+        $request->validate($regras, $mensagens);
+
         $empresa = new Empresa;
         $empresa->nomefantasia = $request->nomefantasia;
         $empresa->razaosocial = $request->razaosocial;
@@ -85,6 +97,19 @@ class EmpresaController extends Controller
      */
     public function update(Request $request, Empresa $empresa)
     {
+
+        $regras = [
+            'nomefantasia' => 'required |',
+            'razaosocial' => 'required |',
+            'cnpj' => 'required |'
+        ];
+        $mensagens = [
+            'nomefantasia.required' => 'O preenchimento deste campo é obrigatório!',
+            'razaosocial.required' => 'O preenchimento deste campo é obrigatório!',
+            'cnpj.required' => 'O preenchimento deste campo é obrigatório!'
+        ];
+        $request->validate($regras, $mensagens);
+
         $empresa->nomefantasia = $request->nomefantasia;
         $empresa->razaosocial = $request->razaosocial;
         $empresa->cnpj = $request->cnpj;
