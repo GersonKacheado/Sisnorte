@@ -13,7 +13,7 @@
           </div>
           <div class="col-xl-5 col-lg-6 offset-xl-2 offset-lg-1">
               <div class="booking-form">
-                  <h4>Faça seu pedido de serviços</h4>
+                  <h3>Solicitar Serviço</h3>
 {{-- @if(count($errors) > 0)<div class="alert alert-danger"><ul>@foreach ($errors->all() as $error)<li>{{ $error }}</li>@endforeach </ul></div>@endif
 --}}
 <form action="{{ route('solicito.store') }}" method="post"  class="request-form ftco-animate" >

@@ -35,8 +35,8 @@
                     <div class="col-lg-4">
                         <div class="ft-about">
                             <div class="logo">
-                                <a href="#">
-                                    <img src="{{asset('img/footer-logo.png')}}" alt="">
+                                <a href="{{route('index')}}">
+                                    <img src="{{asset('img/logo.png')}}" alt="">
                                 </a>
                             </div>
                             <p>Sistema Integrado de Serviços - SisNorte<br /> Entre em contato e saiba quem somos e o fazemos.</p>

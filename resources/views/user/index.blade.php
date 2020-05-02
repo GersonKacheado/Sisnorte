@@ -35,7 +35,9 @@
                                 @csrf
                                 @method('DELETE')
                             <button type="submit" class="btn btn-outline-danger">Apagar</button>                        
-                        </form>                        </td>
+                        </form>                        
+                        </td>
+
                         {{-- <td>1</td>
                         <td>1</td> --}}
                     </tr>

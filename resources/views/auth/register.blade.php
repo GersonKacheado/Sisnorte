@@ -129,7 +129,7 @@
                 <div class="row">
                     <div class="col-lg-2">
                         <div class="logo">
-                            <a href="./index.html">
+                        <a href="{{route('index')}}">
                                 <img src="img/logo.png" alt="">
                             </a>
                         </div>
@@ -139,10 +139,10 @@
                             <nav class="mainmenu">
                                 <ul>
                                     <li class="active"><a href="{{route('index')}}">Início</a></li>
-                                    <li><a href="./blog.html">Empresa</a></li>
-                                    <li><a href="./rooms.html">Serviços</a></li>
-                                    <li><a href="./about-us.html">Profissões</a></li>
-                                    <li><a href="./pages.html">Contato</a>
+                                    <li><a href="">Empresa</a></li>
+                                    <li><a href="">Serviços</a></li>
+                                    <li><a href="">Profissões</a></li>
+                                    <li><a href="#contato">Contato</a>
                                       <!--  <ul class="dropdown">
                                             <li><a href="./room-details.html">Room Details</a></li>
                                             <li><a href="./blog-details.html">Blog Details</a></li>
@@ -150,7 +150,6 @@
                                             <li><a href="#">Premium Room</a></li>
                                         </ul>-->
                                     </li>
-                                    <li><a href="./contact.html">Trabalhe conosco</a></li>
                                 </ul>
                             </nav>
                             <div class="nav-right search-switch">
@@ -183,17 +182,22 @@
                             @csrf
                             <div class="check-date">
                                 <label for="Nome" class="label">Nome:</label>
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"  autocomplete="name" autofocus>
+                                @if($errors->has('name'))
+                                <div class="invalid-feedback">
+                                    {{$errors->has('first')}}
+                                </div>
+                            @endif
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror                            
                             </div>
+
                             <div class="check-date">
                                 <label for="Telefone" class="label">Telefone</label>
-                                <input id="telefone" type="text" class="form-control @error('telefone') is-invalid @enderror" 
-                                name="telefone" value="{{ old('telefone') }}" required autocomplete="telefone">
+                                <input id="telefone" type="text" class="form-control @error('telefone') is-invalid @enderror" name="telefone" value="{{ old('telefone') }}"  autocomplete="telefone">
                                 @error('telefone')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -202,7 +206,7 @@
                             </div>
                             <div class="check-date">
                                 <label for="Email" class="label">Email:</label>
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"  autocomplete="email">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -212,7 +216,7 @@
                             </div>
                             <div class="check-date">
                             <label for="Senha" class="label">Senha</label>
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password"  autocomplete="new-password">
 
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -222,13 +226,17 @@
                             </div>
                             <div class="check-date">
                             <label for="Confirmar Senha" class="label">Confirmar Senha</label>
-                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation"  autocomplete="new-password">
 
                             </div>                          
                             
                             
-                            <button type="submit" class="btn btn-primary">Salvar</button>
-                        </form>
+<div class="d-flex">
+                <div class="form-group ml-2">
+                    <input type="submit" name="btnEnviar" class="btn btn-success">
+                    <a href="{{ route('login') }}" class="btn btn-primary">Ir para login</a>
+                </div>
+            </div>                          </form>
                     </div>
                 </div>
             </div>

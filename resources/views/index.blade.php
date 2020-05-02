@@ -95,7 +95,7 @@
                     <div class="col-lg-6">
                         <ul class="tn-left">
                             <li><i class="fa fa-phone"></i> (XX) XXXX XXXX</li>
-                            <li><i class="fa fa-envelope"></i> exemplo@gmail.com</li>
+                            <li><i class="fa fa-envelope"></i> sisnorte.ap@gmail.com</li>
                         </ul>
                     </div>
                     <div class="col-lg-6">
@@ -129,8 +129,8 @@
                 <div class="row">
                     <div class="col-lg-2">
                         <div class="logo">
-                            <a href="./index.html">
-                                <img src="{{asset('img/logo.png')}}" alt="">
+                            <a href="{{route('index')}}">
+                                <img width="110px"  src="{{asset('img/logo.png')}}" alt="">
                             </a>
                         </div>
                     </div>
@@ -138,10 +138,11 @@
                         <div class="nav-menu">
                             <nav class="mainmenu">
                                 <ul>
-                                    <li class="active"><a href="{{route('index')}}">Início</a></li>
+                                    <li ><a href="{{route('index')}}">Início</a></li>
+                                    <li class="active"><a href="{{route('home')}}">Fazer Pedido</a></li>
                                     <li><a href="#empresa">Empresa</a></li>
                                     <li><a href="#servicos">Serviços</a></li>
-                                    <li><a href="">Profissões</a></li>
+                                    
                                     <li><a href="#contato">Contato</a>
                                       <!--  <ul class="dropdown">
                                             <li><a href="./room-details.html">Room Details</a></li>
@@ -150,7 +151,6 @@
                                             <li><a href="#">Premium Room</a></li>
                                         </ul>-->
                                     </li>
-                                    <li><a href="">Trabalhe conosco</a></li>
                                 </ul>
                             </nav>
                             <div class="nav-right search-switch">
@@ -170,50 +170,109 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="hero-text">
-                        <h1>Sona Service</h1>
-                        <p>Here are the best hotel booking sites, including recommendations for international
-                            travel and for finding low-priced hotel rooms.</p>
-                        <a href="#" class="primary-btn">Discover Now</a>
+                        <h1>SisNorte</h1>
+                        <p>Sistema web para gerenciamento de clientes e serviços, além de fazer a divulgação da empresa Norte Dedetização Ltda.</p>
+                        <a href="#contato" class="primary-btn">Para mais detalhes</a>
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">
                     <div class="booking-form">
-                        <h3>Booking Your Service</h3>
-                        <form action="#">
+                        <h3>Primeiro Cadastro</h3>
+                        <form method="POST" action="{{ route('register') }}">
+                            @csrf
                             <div class="check-date">
-                                <label for="date-in">Check In:</label>
-                                <input type="text" class="date-input" id="date-in">
-                                <i class="icon_calendar"></i>
+                                <label for="NOME">NOME:</label>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"  autocomplete="name" autofocus>
+                @if($errors->has('name'))
+                    <div class="invalid-feedback">
+                        {{$errors->has('first')}}
+                    </div>
+                @endif
+
+                @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                            </div>
+
+                            <div class="check-date">
+                                <label for="TELEFONE">TELEFONE:</label>
+                                <input id="telefone" type="text" class="form-control @error('telefone') is-invalid @enderror" name="telefone" value="{{ old('telefone') }}"  autocomplete="telefone">
+                @if($errors->has('telefone'))
+                    <div class="invalid-feedback">
+                {{$errors->has('first')}}
+                    </div>
+                @endif
+
+               @error('telefone')
+                   <span class="invalid-feedback" role="alert">
+                       <strong>{{ $message }}</strong>
+                   </span>
+               @enderror
+                            </div>
+
+                            <div class="check-date">
+                                <label for="TELEFONE">EMAIL:</label>
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"  autocomplete="email">
+                @if($errors->has('email'))
+                    <div class="invalid-feedback">
+                {{$errors->has('first')}}
+                    </div>
+                @endif
+
+                @error('email')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+                            </div>
+
+                            <div class="check-date">
+                                <label for="TELEFONE">SENHA:</label>
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password"  autocomplete="new-password">
+                                @if($errors->has('password'))
+                    <div class="invalid-feedback">
+                {{$errors->has('first')}}
+                    </div>
+                @endif
+
+                @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
                             </div>
                             <div class="check-date">
-                                <label for="date-out">Check Out:</label>
-                                <input type="text" class="date-input" id="date-out">
-                                <i class="icon_calendar"></i>
+                                <label for="CONFIRMAR SENHA" class="label">CONFIRMAR SENHA:</label>
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation"  autocomplete="new-password">
+                                @if($errors->has('password_confirmation'))
+                    <div class="invalid-feedback">
+                {{$errors->has('first')}}
+                    </div>
+                @endif 
+                @error('password_confirmation')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
                             </div>
-                            <div class="select-option">
-                                <label for="guest">Guests:</label>
-                                <select id="guest">
-                                    <option value="">2 Adults</option>
-                                    <option value="">3 Adults</option>
-                                </select>
-                            </div>
-                            <div class="select-option">
-                                <label for="room">Room:</label>
-                                <select id="room">
-                                    <option value="limpeza de forro com aspiracao">LIMPEZA DE FORRO COM ASPIRAÇÃO</option>
-                                    <option value="">2 Room</option>
-                                </select>
-                            </div>
-                            <button type="submit">Check Availability</button>
+
+                            <div class="d-flex">
+                                <div class="form-group ml-2">
+                                    <input type="submit" name="btnEnviar" class="btn btn-success">
+                                    <a href="{{ route('login') }}" class="btn btn-primary">Ir para login</a>
+                                </div>
+                            </div> 
                         </form>
                     </div>
                 </div>
             </div>
         </div>
         <div class="hero-slider owl-carousel">
-            <div class="hs-item set-bg" data-setbg="{{asset('img/hero/hero-1.jpg')}}"></div>
+            <!--<div class="hs-item set-bg" data-setbg="{{asset('img/hero/hero-1.jpg')}}"></div>-->
             <div class="hs-item set-bg" data-setbg="{{asset('img/hero/hero-2.jpg')}}"></div>
-            <div class="hs-item set-bg" data-setbg="{{asset('img/hero/hero-3.jpg')}}"></div>
+            <!--<div class="hs-item set-bg" data-setbg="{{asset('img/hero/hero-3.jpg')}}"></div>-->
         </div>
     </section>
     <!-- Hero Section End -->
@@ -228,11 +287,9 @@
                             <span>A Empresa</span>
                             <h2>NORTE DEDETIZAÇÃO Ltda</h2>
                         </div>
-                        <p class="f-para">Sona.com is a leading online accommodation site. We’re passionate about
-                            travel. Every day, we inspire and reach millions of travelers across 90 local websites in 41
-                            languages.</p>
-                        <p class="s-para">So when it comes to booking the perfect hotel, vacation rental, resort,
-                            apartment, guest house, or tree house, we’ve got you covered.</p>
+                        <p class="f-para">Empresa especializada em dedetização de ambientes sejam eles internos ou externos. No mercado a mais de 10 anos livrando famílias amapaenses de quaisquer pragas ou roedores.
+                            Além da dedetização, oferecemos tambéms outros serviços como de instalação eletríca, reparos hidraúlicos, pintura em geral, entre outros.</p>
+                        <br>
                         <a href="#contato" class="primary-btn about-btn">Mais Informações</a>
                     </div>
                 </div>
@@ -477,8 +534,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <span>Testimonials</span>
-                        <h2>What Customers Say?</h2>
+                        <span>Recomendações</span>
+                        <h2>O que dizem os clientes?</h2>
                     </div>
                 </div>
             </div>
@@ -486,10 +543,8 @@
                 <div class="col-lg-8 offset-lg-2">
                     <div class="testimonial-slider owl-carousel">
                         <div class="ts-item">
-                            <p>After a construction project took longer than expected, my husband, my daughter and I
-                                needed a place to stay for a few nights. As a Chicago resident, we know a lot about our
-                                city, neighborhood and the types of housing options available and absolutely love our
-                                vacation at Sona Hotel.</p>
+                            <p>Empresa que busca pela melhor forma de atender seus clientes, 
+                            fornecendo todo o suporte pré e pós serviços. Sem contar com o profissionalismo e segurança que seus funcionários passam para os clientes.</p>
                             <div class="ti-author">
                                 <div class="rating">
                                     <i class="icon_star"></i>
@@ -498,15 +553,12 @@
                                     <i class="icon_star"></i>
                                     <i class="icon_star-half_alt"></i>
                                 </div>
-                                <h5> - Alexander Vasquez</h5>
+                                <h5> - Sandra Regina Serra</h5>
                             </div>
                             <img src="{{asset('img/testimonial-logo.png')}}" alt="">
                         </div>
                         <div class="ts-item">
-                            <p>After a construction project took longer than expected, my husband, my daughter and I
-                                needed a place to stay for a few nights. As a Chicago resident, we know a lot about our
-                                city, neighborhood and the types of housing options available and absolutely love our
-                                vacation at Sona Hotel.</p>
+                            <p>Após a execução de dedetização em minha residência, obtive por meio da empresa as recomendações dos cuidados a serem tomados com crianças, animais e idosos para que não haja nenhuma prejudicação na saúde dos mesmo, isso fez perceber o zelo que a empresa tem com seus clientes.</p>
                             <div class="ti-author">
                                 <div class="rating">
                                     <i class="icon_star"></i>
@@ -515,7 +567,7 @@
                                     <i class="icon_star"></i>
                                     <i class="icon_star-half_alt"></i>
                                 </div>
-                                <h5> - Alexander Vasquez</h5>
+                                <h5> - Vanilda Inajosa</h5>
                             </div>
                             <img src="{{asset('img/testimonial-logo.png')}}" alt="">
                         </div>
@@ -527,65 +579,7 @@
     <!-- Testimonial Section End -->
 
     <!-- Blog Section Begin -->
-    <section class="blog-section spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <span>Hotel News</span>
-                        <h2>Our Blog & Event</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="blog-item set-bg" data-setbg="{{asset('img/blog/blog-1.jpg')}}">
-                        <div class="bi-text">
-                            <span class="b-tag">Travel Trip</span>
-                            <h4><a href="#">Tremblant In Canada</a></h4>
-                            <div class="b-time"><i class="icon_clock_alt"></i> 15th April, 2019</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="blog-item set-bg" data-setbg="{{asset('img/blog/blog-2.jpg')}}">
-                        <div class="bi-text">
-                            <span class="b-tag">Camping</span>
-                            <h4><a href="#">Choosing A Static Caravan</a></h4>
-                            <div class="b-time"><i class="icon_clock_alt"></i> 15th April, 2019</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="blog-item set-bg" data-setbg="{{asset('img/blog/blog-3.jpg')}}">
-                        <div class="bi-text">
-                            <span class="b-tag">Event</span>
-                            <h4><a href="#">Copper Canyon</a></h4>
-                            <div class="b-time"><i class="icon_clock_alt"></i> 21th April, 2019</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="blog-item small-size set-bg" data-setbg="{{asset('img/blog/blog-wide.jpg')}}">
-                        <div class="bi-text">
-                            <span class="b-tag">Event</span>
-                            <h4><a href="#">Trip To Iqaluit In Nunavut A Canadian Arctic City</a></h4>
-                            <div class="b-time"><i class="icon_clock_alt"></i> 08th April, 2019</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="blog-item small-size set-bg" data-setbg="{{asset('img/blog/blog-10.jpg')}}">
-                        <div class="bi-text">
-                            <span class="b-tag">Travel</span>
-                            <h4><a href="#">Traveling To Barcelona</a></h4>
-                            <div class="b-time"><i class="icon_clock_alt"></i> 12th April, 2019</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+   
     <!-- Blog Section End -->
 @extends('layouts.footer')
 @section('rodape')

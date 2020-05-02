@@ -145,7 +145,7 @@
                 <div class="row">
                     <div class="col-lg-2">
                         <div class="logo">
-                            <a href="./index.html">
+                            <a href="{{route('index')}}">
                                 <img src="{{asset('img/logo.png')}}" alt="">
                             </a>
                         </div>

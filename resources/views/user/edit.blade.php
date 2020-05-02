@@ -1,8 +1,8 @@
 @extends('layouts.inicio')
 @section('inicio')
 
-  <div class="col-xl-6 col-lg-5 offset-xl-2 offset-lg-1">
-            <div class="booking-form">
+<div class="col-xl-6 col-lg-5 offset-xl-2 offset-lg-1">
+  <div class="booking-form">
       <h4>Painel de Edição de Registro</h4>   
           <form action="{{ route('user.update', $users->id) }}" method="post"  class="request-form ftco-animate" >
           @method('PATCH')

@@ -1,10 +1,6 @@
 @extends('layouts.inicio')
 @section('inicio')
-
-    
-
-
-
+  
 <div class="container">
     <div class="card text-center">
         <div class="card-header">
@@ -19,7 +15,6 @@
                     <th scope="col">EMAIL</th>
                     {{--<th scope="col">SENHA</th>--}}
                     <th colspan="2">GERENCIAR REGISTRO</th>
-                    <th></th>
                 </thead>
                 <tbody>
                     <tr>

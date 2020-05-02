@@ -146,7 +146,7 @@
                 <div class="row">
                     <div class="col-lg-2">
                         <div class="logo">
-                            <a href="./index.html">
+                            <a href="{{route('index')}}">
                                 <img src="{{asset('img/logo.png')}}" alt="">
                             </a>
                         </div>
@@ -174,7 +174,7 @@
                                     </li>
                                     <li><a href="{{route('empresa.index')}}">Empresa</a>                                       
                                     </li>
-                                    <li><a href="./contact.html">Contact</a></li>
+                                    <li><a href="#contato">Contato</a></li>
                                 </ul>
                             </nav>
                             <div class="nav-right search-switch">

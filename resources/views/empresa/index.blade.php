@@ -17,6 +17,7 @@
     <table class="table table-hover">
         <thead>
         <tr>
+            <th scope="col">CODIGO</th>
             <th scope="col">NOME FANTASIA</th>
             <th scope="col">CNPJ</th>
             <th scope="col">GERENCIAR INFORMAÇÕES</th>
@@ -26,12 +27,20 @@
     <tbody>
     @foreach ($empresas as $empresa)
     <tr>
-    <td>{{ $empresa->nomefantasia }}</td>
-    <td>{{ $empresa->cnpj }}</td>
+        <td>{{ $empresa->id }}</td>
+        <td>{{ $empresa->nomefantasia }}</td>
+        <td>{{ $empresa->cnpj }}</td>
 
     <td>
-        <a href="{{ route('empresa.edit', $empresa->id) }}">Editar</a>
-        <a href="{{ route('empresa.show', $empresa->id) }}">Detalhes</a>
+        <a href="{{ route('empresa.show', $empresa->id) }}" class="btn btn-outline-info">Detalhes</a>
+        <a href="{{ route('empresa.edit', $empresa->id) }}" class="btn btn-outline-warning">Editar</a>
+    </td>
+    <td colspan="2">
+        <form action="{{ route('empresa.destroy', $empresa->id) }}" method="POST">
+            @csrf
+            @method('DELETE')
+        <button type="submit" class="btn btn-outline-danger">Apagar</button>                        
+    </form>                        
     </td>
     </tr>
     @endforeach
@@ -39,8 +48,6 @@
     </tbody>
 </table>
 </div>
-
-<a href="{{ route('empresa.create', $empresa->id) }}">Criar Novo</a>
 {{-- <div class="card-footer">
     {{ $users->links() }}
 </div> --}}
