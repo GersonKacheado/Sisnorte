@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\User;
+use App\solicito;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Gate as GateContract;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -14,6 +16,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         // 'App\Model' => 'App\Policies\ModelPolicy',
+        \App\Solicito::class => \App\Policies\SolicitoPolicy::class,
     ];
 
     /**
@@ -21,9 +24,14 @@ class AuthServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(GateContract $gate)
     {
-        $this->registerPolicies();
+        $this->registerPolicies($gate);
+
+       /* $gate->define('solicito.show', function(User $user, Solicito $solicito)
+        {
+            return $user->id == $solicito->user->id;
+        });*/
 
         //
     }

@@ -28,6 +28,7 @@ Route::resource('funcionario', 'FuncionarioController')->middleware('auth:admin'
 Route::resource('recebe', 'RecebeController')->middleware('auth:admin');
 Route::resource('service', 'ServiceController')->middleware('auth:admin');
 Route::resource('solicito', 'SolicitoController');
+//Route::get('solicito/index', 'SolicitoController@index');
 Route::resource('usuario', 'UsuarioController');
 
 

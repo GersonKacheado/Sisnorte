@@ -19,10 +19,12 @@
                     </th>
                 </thead>
                 <tbody>
+                    
                     @foreach ($solicitos as $solicito)
 
                     <tr>
                         <td>{{ $solicito->users_id }}</td>
+                        
                         <td>{{ $solicito->tipo }}</td>
                         <td>{{ $solicito->municipio }}</td>
                         <td>{{ $solicito->bairro}}</td>

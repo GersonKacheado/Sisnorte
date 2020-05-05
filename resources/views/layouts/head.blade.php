@@ -60,19 +60,16 @@
         </div>
         <nav class="mainmenu mobile-menu">
             <ul>
-                <li class="active"><a href="{{route('index')}}">Início</a></li>
-                <li><a href="./rooms.html">Rooms</a></li>
-                <li><a href="./about-us.html">About Us</a></li>
-                <li><a href="./pages.html">Pages</a>
-                    <ul class="dropdown">
+                <li ><a href="{{route('index')}}">Início</a></li>
+                <li class="active"><a href="{{route('home')}}">Fazer Pedido</a></li>                                    
+                <li><a href="#contato">Contato</a>
+                  <!--  <ul class="dropdown">
                         <li><a href="./room-details.html">Room Details</a></li>
-                        <li><a href="#">Deluxe Room</a></li>
+                        <li><a href="./blog-details.html">Blog Details</a></li>
                         <li><a href="#">Family Room</a></li>
                         <li><a href="#">Premium Room</a></li>
-                    </ul>
+                    </ul>-->
                 </li>
-                <li><a href="./blog.html">News</a></li>
-                <li><a href="./contact.html">Contact</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -146,19 +143,16 @@
                         <div class="nav-menu">
                             <nav class="mainmenu">
                                 <ul>
-                                    <li class="active"><a href="{{route('index')}}">Início</a></li>
-                                    <li><a href="./rooms.html">Rooms</a></li>
-                                    <li><a href="./about-us.html">About Us</a></li>
-                                    <li><a href="./pages.html">Pages</a>
-                                        <ul class="dropdown">
+                                    <li ><a href="{{route('index')}}">Início</a></li>
+                                    <li class="active"><a href="{{route('home')}}">Fazer Pedido</a></li>                                    
+                                    <li><a href="#contato">Contato</a>
+                                      <!--  <ul class="dropdown">
                                             <li><a href="./room-details.html">Room Details</a></li>
                                             <li><a href="./blog-details.html">Blog Details</a></li>
                                             <li><a href="#">Family Room</a></li>
                                             <li><a href="#">Premium Room</a></li>
-                                        </ul>
+                                        </ul>-->
                                     </li>
-                                    <li><a href="./blog.html">News</a></li>
-                                    <li><a href="./contact.html">Contact</a></li>
                                 </ul>
                             </nav>
                             <div class="nav-right search-switch">
@@ -180,5 +174,7 @@
         <script src="{{asset('js/jquery.slicknav.js')}}"></script>
         <script src="{{asset('js/owl.carousel.min.js')}}"></script>
         <script src="{{asset('js/main.js')}}"></script>
+
     </body>
+    
 </html>

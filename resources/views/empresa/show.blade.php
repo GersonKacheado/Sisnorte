@@ -14,7 +14,6 @@
                 <th scope="col">RAZÃO SOCIAL</th>
                 {{--<th scope="col">SENHA</th>--}}
                 <th colspan="2">GERENCIAR REGISTRO</th>
-                <th></th>
             </thead>
             <tbody>
                 <tr>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Solicito;
+use App\user;
 
 
 
@@ -16,10 +17,12 @@ class SolicitoController extends Controller
      */
     public function index()
     {
+        $users = User::all();
+
        // $solicitos = Solicito::All();
        $solicitos = Solicito::paginate(10);
 
-        return view('solicito.index', array('solicitos' => $solicitos, 'busca'=>null));
+        return view('solicito.index', array('solicitos' => $solicitos, 'busca'=>null), compact('users'));
     }
 
     /**
@@ -29,7 +32,8 @@ class SolicitoController extends Controller
      */
     public function create()
     {
-        return view('solicito.create');
+        $users = User::all();
+        return view('solicito.create', compact('users'));
     }
 
     /**
@@ -40,6 +44,7 @@ class SolicitoController extends Controller
      */
     public function store(Request $request)
     {
+        
         $regras = [
             'tipo' => 'required |',
             'estado' => 'required |',
@@ -64,7 +69,8 @@ class SolicitoController extends Controller
         ];
         $request->validate($regras, $mensagens);
 
-       
+       // var_dump($request);
+
        // dd(auth()->user());
         $solicito = new Solicito;
         $solicito->users_id = auth()->id();
@@ -75,7 +81,9 @@ class SolicitoController extends Controller
         $solicito->rua = $request->rua;
         $solicito->numero = $request->numero;
         $solicito->complemento = $request->complemento;
+
         $solicito->save();
+        
         return redirect()->route('index');
     }
 

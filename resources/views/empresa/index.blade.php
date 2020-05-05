@@ -3,15 +3,10 @@
 @section('inicio')
 <div class="container">
     <div class="card text-center">
-       {{-- <div class="card-header">
-            Listagem de {{ $users->count() }} clientes no total de {{ $users->total() }} 
-            exibindo agora registros de ({{ $users->firstItem() }}) a ({{ $users->lastItem() }})
-        </div> --}}
-{{-- <form method="POST" action="empresa/buscar" >
-    @csrf
-    <input name="text" type="text" placeholder="ajeitar bug aqui">
-    <button type="submit">buscar</button>
-</form> --}}
+        <div class="card-header">
+            Listagem de {{ $empresas->count() }} empresas no total de {{ $empresas->total() }} 
+            exibindo agora registros de ({{ $empresas->firstItem() }}) a ({{ $empresas->lastItem() }})
+        </div>
 <div class="card-body">
 
     <table class="table table-hover">
@@ -48,10 +43,9 @@
     </tbody>
 </table>
 </div>
-{{-- <div class="card-footer">
-    {{ $users->links() }}
-</div> --}}
-
+    <div class="card-footer">
+        {{ $empresas->links() }}
+    </div>
     </div>
 </div>
 

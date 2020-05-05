@@ -1,6 +1,7 @@
 @extends('layouts.head')
 @section('head')
 
+
 <section class="hero-section">
   <div class="container">
       <div class="row">
@@ -175,11 +176,15 @@
 </div>
 </div>
 <div class="hero-slider owl-carousel">
-<div class="hs-item set-bg" data-setbg="img/hero/hero-1.jpg"></div>
-<div class="hs-item set-bg" data-setbg="img/hero/hero-3.jpg"></div>
-<div class="hs-item set-bg" data-setbg="img/hero/hero-1.jpg"></div>
+    
+<div class="hs-item set-bg" data-setbg="img/hero/hero-2.jpg"></div>
+<div class="hs-item set-bg" data-setbg="img/hero/hero-2.jpg"></div>
+<div class="hs-item set-bg" data-setbg="img/hero/hero-2.jpg"></div>
 </div>
+
 </section>
+
 @endsection
+
 
 

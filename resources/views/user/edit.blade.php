@@ -91,8 +91,8 @@
 
         <div class="d-flex">
           <div class="form-group ml-2">
-            <input type="submit" name="btnEnviar" class="btn btn-success">
-            <a href="{{ route('user.index') }}" class="btn btn-danger">Cancelar</a>
+            <input type="submit" name="btnEnviar" class="btn btn-success py-3 px-4">
+            <a href="{{ route('user.index') }}" class="btn btn-danger py-3 px-4">Cancelar</a>
 
           </div>
           

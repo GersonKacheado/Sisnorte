@@ -60,19 +60,40 @@
         </div>
         <nav class="mainmenu mobile-menu">
             <ul>
-                <li class="active"><a href="./index.blade.php">Início</a></li>
-                <li><a href="./rooms.html">Rooms</a></li>
-                <li><a href="./about-us.html">About Us</a></li>
-                <li><a href="./pages.html">Pages</a>
-                    <ul class="dropdown">
-                        <li><a href="./room-details.html">Room Details</a></li>
-                        <li><a href="#">Deluxe Room</a></li>
-                        <li><a href="#">Family Room</a></li>
-                        <li><a href="#">Premium Room</a></li>
+                <li class="active"><a href="{{route('index')}}">Início</a></li>
+
+                <li><a href="{{route('solicito.index')}}">Pedidos</a>
+                <ul class="dropdown">
+                        <li><a href="{{route('solicito.index')}}">Ver todos</a></li>
                     </ul>
                 </li>
-                <li><a href="./blog.html">News</a></li>
-                <li><a href="./contact.html">Contact</a></li>
+            <li><a href="{{route('user.index')}}">Clientes</a>
+            <ul class="dropdown">
+                       <li><a href="{{route('user.create')}}">Novo</a></li>
+                       <li><a href="{{route('user.index')}}">Ver todos</a></li>
+                    </ul>
+            </li>
+                <li><a href="{{route('funcionario.index')}}">Funcionarios</a>
+                <ul class="dropdown">
+                       <li><a href="{{route('funcionario.create')}}">Novo</a></li>
+                       <li><a href="{{route('funcionario.index')}}">Ver todos</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="{{route('service.index')}}">Serviço</a>
+                    <ul class="dropdown">
+                           <li><a href="{{route('service.create')}}">Novo</a></li>
+                           <li><a href="{{route('service.index')}}">Ver todos</a></li>
+                        </ul>
+                    </li>
+
+                <li><a href="{{route('empresa.index')}}">Empresa</a>
+                    <ul class="dropdown">
+                <li><a href="{{route('empresa.create')}}">Novo</a></li>
+                <li><a href="{{route('empresa.index')}}">Ver todos</a></li>
+                    </ul>
+                </li>
+
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -159,22 +180,36 @@
 
                                     <li><a href="{{route('solicito.index')}}">Pedidos</a>
                                     <ul class="dropdown">
-                                            <li><a href="{{route('solicito.create')}}">Novo</a></li>
+                                            <li><a href="{{route('solicito.index')}}">Ver todos</a></li>
                                         </ul>
                                     </li>
                                 <li><a href="{{route('user.index')}}">Clientes</a>
                                 <ul class="dropdown">
                                            <li><a href="{{route('user.create')}}">Novo</a></li>
+                                           <li><a href="{{route('user.index')}}">Ver todos</a></li>
                                         </ul>
                                 </li>
                                     <li><a href="{{route('funcionario.index')}}">Funcionarios</a>
                                     <ul class="dropdown">
                                            <li><a href="{{route('funcionario.create')}}">Novo</a></li>
+                                           <li><a href="{{route('funcionario.index')}}">Ver todos</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="{{route('empresa.index')}}">Empresa</a>                                       
+
+                                    <li><a href="{{route('service.index')}}">Serviço</a>
+                                        <ul class="dropdown">
+                                               <li><a href="{{route('service.create')}}">Novo</a></li>
+                                               <li><a href="{{route('service.index')}}">Ver todos</a></li>
+                                            </ul>
+                                        </li>
+
+                                    <li><a href="{{route('empresa.index')}}">Empresa</a>
+                                        <ul class="dropdown">
+                                    <li><a href="{{route('empresa.create')}}">Novo</a></li>
+                                    <li><a href="{{route('empresa.index')}}">Ver todos</a></li>
+                                        </ul>
                                     </li>
-                                    <li><a href="#contato">Contato</a></li>
+
                                 </ul>
                             </nav>
                             <div class="nav-right search-switch">

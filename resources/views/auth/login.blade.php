@@ -140,10 +140,10 @@
                             <nav class="mainmenu">
                                 <ul>
                                     <li class="active"><a href="{{route('index')}}">Início</a></li>
-                                    <li><a href="./blog.html">Empresa</a></li>
-                                    <li><a href="./rooms.html">Serviços</a></li>
-                                    <li><a href="./about-us.html">Profissões</a></li>
-                                    <li><a href="./pages.html">Contato</a>
+                                    <li><a href="#empresa">Empresa</a></li>
+                                    <li><a href="#servicos">Serviços</a></li>
+                                    <li><a href="#profissoes">Profissões</a></li>
+                                    <li><a href="#contato">Contato</a>
                                       <!--  <ul class="dropdown">
                                             <li><a href="./room-details.html">Room Details</a></li>
                                             <li><a href="./blog-details.html">Blog Details</a></li>
@@ -151,7 +151,6 @@
                                             <li><a href="#">Premium Room</a></li>
                                         </ul>-->
                                     </li>
-                                    <li><a href="./contact.html">Trabalhe conosco</a></li>
                                 </ul>
                             </nav>
                             <div class="nav-right search-switch">
@@ -237,14 +236,15 @@
             </div>
         </div>
         <div class="hero-slider owl-carousel">
-            <div class="hs-item set-bg" data-setbg="img/hero/hero-1.jpg"></div>
-            <div class="hs-item set-bg" data-setbg="img/hero/hero-1.jpg"></div>
-            <div class="hs-item set-bg" data-setbg="img/hero/hero-1.jpg"></div>
+            <div class="hs-item set-bg" data-setbg="img/hero/hero-2.jpg"></div>
+            {{-- <div class="hs-item set-bg" data-setbg="img/hero/hero-1.jpg"></div>
+            <div class="hs-item set-bg" data-setbg="img/hero/hero-1.jpg"></div> --}}
         </div>
     </section>
 
-    @extends('layouts.footer')
+@extends('layouts.footer')
 @section('rodape')
+
 @endsection
 
 

@@ -2,6 +2,10 @@
 @section('inicio')
 <div class="container">
     <div class="card text-center">
+        <div class="card-header">
+            Listagem de {{ $funcionarios->count() }} colaboradores no total de {{ $funcionarios->total() }} 
+            exibindo agora registros de ({{ $funcionarios->firstItem() }}) a ({{ $funcionarios->lastItem() }})
+        </div>
         <div class="card-body">
             <table class="table table-hover">
                 <thead>
@@ -35,6 +39,9 @@
 
                 </tbody>
             </table>
+        </div>
+        <div class="card-footer">
+            {{ $funcionarios->links() }}
         </div>
     </div>
 </div>
