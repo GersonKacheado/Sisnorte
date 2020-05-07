@@ -15,6 +15,9 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @if ($services->isEmpty())
+                    <?php flash('Ops! Você ainda não possui nenhum registro de Serviços no momento! <i class="fa fa-user" aria-hidden="true"></i>')->error()->important() ?>    
+                @else 
                     @foreach ( $services as $service)
                     <tr>
                     <td>{{ $service->id }}</td>
@@ -35,6 +38,7 @@
                     </tr>
                         
                     @endforeach
+                    @endif
                 </tbody>
             </table>
         </div>

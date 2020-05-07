@@ -20,6 +20,9 @@
        </tr>
     </thead>
     <tbody>
+        @if ($empresas->isEmpty())
+                    <?php flash('Ops! Você ainda não possui nenhum registro de Empresa no momento! <i class="fa fa-user" aria-hidden="true"></i>')->error()->important() ?>    
+                @else 
     @foreach ($empresas as $empresa)
     <tr>
         <td>{{ $empresa->id }}</td>
@@ -39,6 +42,7 @@
     </td>
     </tr>
     @endforeach
+    @endif
 
     </tbody>
 </table>

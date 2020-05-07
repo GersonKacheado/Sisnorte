@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 27-Mar-2020 às 00:12
+-- Tempo de geração: 05-Maio-2020 às 11:15
 -- Versão do servidor: 8.0.17
 -- versão do PHP: 7.3.10
 
@@ -38,6 +38,13 @@ CREATE TABLE `admins` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Extraindo dados da tabela `admins`
+--
+
+INSERT INTO `admins` (`id`, `name`, `email`, `email_verified_at`, `password`, `created_at`, `updated_at`) VALUES
+(1, 'Gerson Admin', 'administrador@gmail.com', NULL, '$2y$10$mMRVTmhIxWq65gA8uSQJ5elghddrBSEDwo9dPyOqTfqz9P6F/hv8K', '2020-05-05 11:02:39', '2020-05-05 11:02:39');
+
 -- --------------------------------------------------------
 
 --
@@ -58,7 +65,7 @@ CREATE TABLE `empresas` (
 --
 
 INSERT INTO `empresas` (`id`, `nomefantasia`, `razaosocial`, `cnpj`, `created_at`, `updated_at`) VALUES
-(1, 'NORTE DEDETIZACAO', 'M. DO PILAR CORREA CARDOSO EIRELI', '11.128.124/0001-73', '2020-03-26 23:25:12', '2020-03-26 23:25:12');
+(1, 'norte dedetização', 'sousa & norte', '954/597.15', '2020-05-05 11:04:53', '2020-05-05 11:04:53');
 
 -- --------------------------------------------------------
 
@@ -93,6 +100,13 @@ CREATE TABLE `funcionarios` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Extraindo dados da tabela `funcionarios`
+--
+
+INSERT INTO `funcionarios` (`id`, `nome`, `rg`, `cpf`, `profissao`, `telefone`, `observacao`, `created_at`, `updated_at`) VALUES
+(1, 'severino da silva', 584964, '91459848715', 'pintor', '096992053959', 'nenhuma', '2020-05-05 11:04:08', '2020-05-05 11:04:08');
+
 -- --------------------------------------------------------
 
 --
@@ -115,11 +129,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2020_02_28_181952_create_empresas_table', 1),
 (5, '2020_02_28_182153_create_funcionarios_table', 1),
-(6, '2020_02_28_182450_create_usuarios_table', 1),
-(7, '2020_02_28_235456_create_solicitos_table', 1),
-(8, '2020_02_29_000202_create_services_table', 1),
-(9, '2020_02_29_002211_create_recebes_table', 1),
-(10, '2020_03_12_223305_create_admins_table', 1);
+(6, '2020_02_28_235456_create_solicitos_table', 1),
+(7, '2020_02_29_000202_create_services_table', 1),
+(8, '2020_02_29_002211_create_recebes_table', 1),
+(9, '2020_03_12_223305_create_admins_table', 1);
 
 -- --------------------------------------------------------
 
@@ -162,9 +175,18 @@ CREATE TABLE `services` (
   `funcionario_id` bigint(20) UNSIGNED NOT NULL,
   `data_execucao` date NOT NULL,
   `data_criacao` date NOT NULL,
+  `descricao` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `services`
+--
+
+INSERT INTO `services` (`id`, `solicito_id`, `empresa_id`, `funcionario_id`, `data_execucao`, `data_criacao`, `descricao`, `created_at`, `updated_at`) VALUES
+(2, 1, 1, 1, '2020-05-09', '2020-05-05', 'pagamento no cartão', '2020-05-05 12:02:40', '2020-05-05 12:02:40'),
+(3, 1, 1, 1, '2020-05-09', '2020-05-05', 'pagamento no cartão', '2020-05-05 12:03:05', '2020-05-05 12:03:05');
 
 -- --------------------------------------------------------
 
@@ -186,6 +208,15 @@ CREATE TABLE `solicitos` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Extraindo dados da tabela `solicitos`
+--
+
+INSERT INTO `solicitos` (`id`, `users_id`, `tipo`, `estado`, `municipio`, `bairro`, `rua`, `numero`, `complemento`, `created_at`, `updated_at`) VALUES
+(1, 1, 'pintura', 'amapa', 'macapa', 'pedrinhas', 'joaquim pena', '1051', 'em frente ao mercantil são josé', '2020-05-05 11:06:59', '2020-05-05 11:06:59'),
+(2, 1, 'limpeza de forro com aspiracao', 'amapa', 'macapa', 'dede', 'desde ja 123', '458', 'oko', '2020-05-05 13:41:02', '2020-05-05 13:41:02'),
+(3, 1, 'desratizacao', 'amapa', 'macapa', 'dede', 'jose rodrigues leitão', '487', 'ijiji', '2020-05-05 13:43:44', '2020-05-05 13:43:44');
+
 -- --------------------------------------------------------
 
 --
@@ -204,19 +235,12 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- --------------------------------------------------------
-
 --
--- Estrutura da tabela `usuarios`
+-- Extraindo dados da tabela `users`
 --
 
-CREATE TABLE `usuarios` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `nome` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `senha` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+INSERT INTO `users` (`id`, `name`, `telefone`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Gerson de Sousa', '096992053959', 'gersonsis2018@gmail.com', NULL, '$2y$10$2Ir57JAXpwYPGIqYoIN2D.7JgiFJBx3S8uwLzqibA8SEKXJSTWL96', NULL, '2020-05-05 11:06:17', '2020-05-05 11:06:17');
 
 --
 -- Índices para tabelas despejadas
@@ -291,12 +315,6 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- Índices para tabela `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT de tabelas despejadas
 --
 
@@ -304,7 +322,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `empresas`
@@ -322,13 +340,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT de tabela `funcionarios`
 --
 ALTER TABLE `funcionarios`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `recebes`
@@ -340,25 +358,19 @@ ALTER TABLE `recebes`
 -- AUTO_INCREMENT de tabela `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `solicitos`
 --
 ALTER TABLE `solicitos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `usuarios`
---
-ALTER TABLE `usuarios`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restrições para despejos de tabelas

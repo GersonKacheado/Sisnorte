@@ -83,8 +83,11 @@ class SolicitoController extends Controller
         $solicito->complemento = $request->complemento;
 
         $solicito->save();
+
+        flash('Sua solicitação de serviço foi recebida com Sucesso! Aguarde contato <i class="fa fa-whatsapp" aria-hidden="true"></i>')->success()->important();
+
         
-        return redirect()->route('index');
+        return redirect()->route('home');
     }
 
     /**
@@ -135,6 +138,9 @@ class SolicitoController extends Controller
         $solicito->numero = $request->numero;
         $solicito->complemento = $request->complemento;
         $solicito->save();
+
+        flash('Mais um registro foi atualizado com Sucesso! <i class="fa fa-pencil" aria-hidden="true"></i>')->warning()->important();
+
         return redirect()->route('solicito.index');
     }
 
@@ -152,6 +158,16 @@ class SolicitoController extends Controller
 
                    
         $solicito->delete();
+
+        flash('Um registro foi eliminado com Sucesso! <i class="fa fa-trash-o" aria-hidden="true"></i>')->error()->important();
+
             return redirect()->route('solicito.index');
+    }
+
+    public function search(Request $request)
+    {
+
+        $a = Solicito::where('tipo','LIKE','%'.$request->busca.'%')->get();
+        return view('solicito.index',['solicitos'=>$a, 'busca'=>$request->busca]);
     }
 }

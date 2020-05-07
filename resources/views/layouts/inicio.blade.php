@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8">
@@ -26,8 +27,10 @@
         <link rel="stylesheet" href="{{asset('css/style.css')}}" type="text/css">
     
 </head>
+
     
     <body>
+
             <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -212,8 +215,12 @@
 
                                 </ul>
                             </nav>
+
+                            
+
                             <div class="nav-right search-switch">
-                                <i class="icon_search"></i>
+                                
+                              <!--  <i class="icon_search"></i> -->
                             </div>
                         </div>
                     </div>
@@ -221,7 +228,11 @@
             </div>
         </div>
     </header>
-        @yield('inicio')   
+    <div class="col-xl-3 col-lg-0 offset-xl-1 offset-lg-1">
+        @include('flash::message')
+    </div>
+        @yield('inicio') 
+        
 
 
         <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
@@ -232,5 +243,6 @@
         <script src="{{asset('js/jquery.slicknav.js')}}"></script>
         <script src="{{asset('js/owl.carousel.min.js')}}"></script>
         <script src="{{asset('js/main.js')}}"></script>
-    </body>
+        
+     </body>
 </html>

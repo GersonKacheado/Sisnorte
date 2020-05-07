@@ -55,6 +55,9 @@ class EmpresaController extends Controller
         $empresa->razaosocial = $request->razaosocial;
         $empresa->cnpj = $request->cnpj;
         $empresa->save();
+
+        flash('Um novo registro foi criado com Sucesso! <i class="fa fa-check" aria-hidden="true"></i>')->success()->important();
+
         return redirect()->route('empresa.index');
     }
 
@@ -116,6 +119,9 @@ class EmpresaController extends Controller
         $empresa->razaosocial = $request->razaosocial;
         $empresa->cnpj = $request->cnpj;
         $empresa->save();
+
+        flash('Mais um registro foi atualizado com Sucesso! <i class="fa fa-pencil" aria-hidden="true"></i>')->warning()->important();
+
         return redirect()->route('empresa.index');
     }
 
@@ -133,6 +139,9 @@ class EmpresaController extends Controller
 
                    
         $empresa->delete();
+
+        flash('Um registro foi eliminado com Sucesso! <i class="fa fa-trash-o" aria-hidden="true"></i>')->error()->important();
+
             return redirect()->route('empresa.index');
     }
 }

@@ -165,6 +165,9 @@
         </div>
     </header>
     <!-- Header End -->
+    <div class="col-xl-3 col-lg-0 offset-xl-1 offset-lg-1">
+        @include('flash::message')
+    </div>
         @yield('head')
         <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
         <script src="{{asset('js/bootstrap.min.js')}}"></script>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Funcionario;
+use App\Http\Controller\Exception;
 
 class FuncionarioController extends Controller
 {
@@ -14,10 +15,15 @@ class FuncionarioController extends Controller
      */
     public function index()
     {
-       // $funcionarios = Funcionario::All();
-       $funcionarios = Funcionario::paginate(10);
+       
+       
+       
+        $funcionarios = Funcionario::All();
+     //  $funcionarios = Funcionario::paginate(10);
+   //  flash('Um novo registro de colaborador foi criadookook222 com Sucesso! <i class="fa fa-user" aria-hidden="true"></i>')->error()->important();
 
         return view('funcionario.index', array('funcionarios' => $funcionarios, 'busca'=>null));
+    
   
     }
 
@@ -47,6 +53,9 @@ class FuncionarioController extends Controller
         $funcionario->telefone = $request->telefone;
         $funcionario->observacao = $request->observacao;
         $funcionario->save();
+
+        flash('Um novo registro de colaborador foi criado com Sucesso! <i class="fa fa-user" aria-hidden="true"></i>')->success()->important();
+
         return redirect()->route('funcionario.index');
     }
 
@@ -97,6 +106,8 @@ class FuncionarioController extends Controller
         $funcionario->telefone = $request->telefone;
         $funcionario->observacao = $request->observacao;
         $funcionario->save();
+        flash('Mais um registro foi atualizado com Sucesso! <i class="fa fa-pencil" aria-hidden="true"></i>')->warning()->important();
+
         return redirect()->route('funcionario.index');
     }
 
@@ -114,6 +125,16 @@ class FuncionarioController extends Controller
 
                    
         $funcionario->delete();
+
+        flash('Um registro foi eliminado com Sucesso! <i class="fa fa-trash-o" aria-hidden="true"></i>')->error()->important();
+
             return redirect()->route('funcionario.index');
+    }
+
+    public function search(Request $request)
+    {
+
+        $a = Funcionario::where('profissao','LIKE','%'.$request->busca.'%')->get();
+        return view('funcionario.index',['funcionarios'=>$a, 'busca'=>$request->busca]);
     }
 }

@@ -3,9 +3,17 @@
 <div class="container">
     <div class="card text-center">
         <div class="card-header">
-            Listagem de {{ $solicitos->count() }} Pedidos no total de {{ $solicitos->total() }} 
+         {{--   Listagem de {{ $solicitos->count() }} Pedidos no total de {{ $solicitos->total() }} 
             exibindo agora registros de ({{ $solicitos->firstItem() }}) a ({{ $solicitos->lastItem() }})
-        </div>
+       --}} </div>
+       <div class="card text-right">
+
+        <form method="POST" action="{{url('/solicito/search')}}">
+            @csrf
+            <input name="busca" type="text" placeholder="busca por Tipo...">
+            <button type="submit"><i class="icon_search"></i></button>
+            </form>
+    </div>
         <div class="card-body">
             <table class="table table-hover">
                 <thead>
@@ -19,7 +27,9 @@
                     </th>
                 </thead>
                 <tbody>
-                    
+                @if ($solicitos->isEmpty())
+                        <?php flash('Ops! Você ainda não possui nenhum registro de Pedidos no momento! <i class="fa fa-user" aria-hidden="true"></i>')->error()->important() ?>    
+                    @else                    
                     @foreach ($solicitos as $solicito)
 
                     <tr>
@@ -42,6 +52,7 @@
                         <td>1</td> --}}
                     </tr>
                     @endforeach
+                    @endif
 
                 </tbody>
             </table>
@@ -51,9 +62,9 @@
 
 
 
-        <div class="card-footer">
+       {{-- <div class="card-footer">
             {{ $solicitos->links() }}
-        </div>
+        </div> --}}
     </div>
 </div>
 {{--

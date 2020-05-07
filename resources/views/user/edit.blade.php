@@ -1,7 +1,15 @@
 @extends('layouts.inicio')
 @section('inicio')
+<section class="hero-section">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-2">
+              <div class="hero-text">
+                  
+              </div>
+          </div>
 
-<div class="col-xl-6 col-lg-5 offset-xl-2 offset-lg-1">
+<div class="col-xl-6 col-lg- offset-xl- offset-lg-1">
   <div class="booking-form">
       <h4>Painel de Edição de Registro</h4>   
           <form action="{{ route('user.update', $users->id) }}" method="post"  class="request-form ftco-animate" >
@@ -59,7 +67,7 @@
 
           <div class="check-date">
             <label for="SENHA" class="label">SENHA:</label>
-            <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" value="" autocomplete="off"   placeholder="DIGITAR NOVA SENHA">
+          <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" value="" autocomplete="off"   placeholder="DIGITAR NOVA SENHA">
               @if($errors->has('password'))
                 <div class="invalid-feedback">
                   {{$errors->has('first')}}
@@ -75,7 +83,7 @@
         
         <div class="check-date">
           <label for="TELEFONE" class="label">CONFIRMAR SENHA:</label>
-          <input id="password-confirm" type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" autocomplete="new-password" placeholder="CONFIRMAR NOVA SENHA"> 
+          <input id="password-confirm" type="password" class="form-control @error('password_confirmation') is-invalid @enderror" value=""  name="password_confirmation" autocomplete="new-password" placeholder="CONFIRMAR NOVA SENHA"> 
             @if($errors->has('password_confirmation'))
                 <div class="invalid-feedback">
             {{$errors->has('first')}}
@@ -102,6 +110,5 @@
           </div>  
   </div>
 </div>
-
-
+</section>
     @endsection

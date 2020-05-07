@@ -8,7 +8,8 @@ use App\User;
 
 class UserController extends Controller
 {
- 
+    public $users;
+
        /**
      * Display a listing of the resource.
      *
@@ -19,7 +20,7 @@ class UserController extends Controller
         //$users = User::All();
         $users = User::paginate(10);
 
-        return view('user.index', array('users' => $users, 'busca'=>null));
+        return view('user.index', array('users' => $users));
   
     }
 
@@ -79,6 +80,10 @@ class UserController extends Controller
 //        $users->email = $request->email;
         $users->password = bcrypt($request->password);
         $users->save();
+
+        flash('Um novo registro foi criado com Sucesso! <i class="fa fa-check" aria-hidden="true"></i>')->success()->important();
+
+
         return redirect()->route('user.index');
     }
 
@@ -157,6 +162,9 @@ class UserController extends Controller
         $users->email = $request->email;
         $users->password = bcrypt($request->password);
         $users->save();
+
+        flash('Mais um registro foi atualizado com Sucesso! <i class="fa fa-pencil" aria-hidden="true"></i>')->warning()->important();
+
         return redirect()->route('user.index');
     }
 
@@ -174,6 +182,17 @@ class UserController extends Controller
 
                    
         $user->delete();
+
+        flash('Um registro foi eliminado com Sucesso! <i class="fa fa-trash-o" aria-hidden="true"></i>')->error()->important();
+
+
             return redirect()->route('user.index');
+    }
+
+    public function search(Request $request)
+    {
+
+        $a = User::where('name','LIKE','%'.$request->busca.'%')->get();
+        return view('user.index',['users'=>$a, 'busca'=>$request->busca]);
     }
 }

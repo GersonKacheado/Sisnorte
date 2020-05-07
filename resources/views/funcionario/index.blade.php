@@ -3,8 +3,16 @@
 <div class="container">
     <div class="card text-center">
         <div class="card-header">
-            Listagem de {{ $funcionarios->count() }} colaboradores no total de {{ $funcionarios->total() }} 
-            exibindo agora registros de ({{ $funcionarios->firstItem() }}) a ({{ $funcionarios->lastItem() }})
+           {{-- Listagem de {{ $funcionarios->count() }} colaboradores no total de {{ $funcionarios->total() }} 
+            exibindo agora registros de ({{ $funcionarios->firstItem() }}) a ({{ $funcionarios->lastItem() }}) --}}
+        </div>
+        <div class="card text-right">
+
+            <form method="POST" action="{{url('/funcionario/search')}}">
+                @csrf
+                <input name="busca" type="text" placeholder="busca por Profissão...">
+                <button type="submit"><i class="icon_search"></i></button>
+                </form>
         </div>
         <div class="card-body">
             <table class="table table-hover">
@@ -17,6 +25,9 @@
                     <th><a href="{{ route('funcionario.create') }}" class="btn btn-outline-success">+ Criar Novo</a></th>
                 </thead>
                 <tbody>
+                    @if ($funcionarios->isEmpty())
+                        <?php flash('Ops! Você ainda não possui nenhum registro de Funcionario no momento! <i class="fa fa-user" aria-hidden="true"></i>')->error()->important() ?>    
+                    @else
                     @foreach ($funcionarios as $funcionario)
                     <tr>
                     <td>{{ $funcionario->id }}</td>
@@ -36,13 +47,14 @@
                     </td>
                     </tr>
                     @endforeach
+                    @endif
 
                 </tbody>
             </table>
         </div>
-        <div class="card-footer">
+      {{--  <div class="card-footer">
             {{ $funcionarios->links() }}
         </div>
-    </div>
+--}}    </div>
 </div>
 @endsection

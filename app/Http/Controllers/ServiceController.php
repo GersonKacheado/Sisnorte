@@ -55,6 +55,9 @@ class ServiceController extends Controller
         $service->data_execucao = $request->data_execucao;
         $service->descricao = $request->descricao;
         $service->save();
+
+        flash('Um novo registro foi criado com Sucesso! <i class="fa fa-check" aria-hidden="true"></i>')->success()->important();
+
         return redirect()->route('service.index');
     }
 
@@ -125,6 +128,9 @@ class ServiceController extends Controller
 
                    
         $service->delete();
+
+        flash('Um registro foi eliminado com Sucesso! <i class="fa fa-trash-o" aria-hidden="true"></i>')->error()->important();
+
             return redirect()->route('service.index');
     }
 }
