@@ -17,7 +17,8 @@
         <div class="card-body">
             <table class="table table-hover">
                 <thead>
-                    <th scope="col">FEITO POR</th>
+                    <th scope="col">CÓDIGO</th>
+                    <th scope="col">COD CLIENTE</th>
                     <th scope="col">TIPO</th>
                     <th scope="col">CIDADE</th>
                     <th scope="col">BAIRRO</th>
@@ -33,8 +34,8 @@
                     @foreach ($solicitos as $solicito)
 
                     <tr>
-                        <td>{{ $solicito->users_id }}</td>
-                        
+                        <td>{{ $solicito->id }}</td>
+                        <td>{{ $solicito->users->name }}</td>                        
                         <td>{{ $solicito->tipo }}</td>
                         <td>{{ $solicito->municipio }}</td>
                         <td>{{ $solicito->bairro}}</td>

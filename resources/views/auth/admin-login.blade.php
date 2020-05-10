@@ -47,31 +47,42 @@
         </div>
         <div class="header-configure-area">
             <div class="language-option">
-                <img src="{{asset('img/flag.jpg')}}" alt="">
-                <span>EN <i class="fa fa-angle-down"></i></span>
-                <div class="flag-dropdown">
-                    <ul>
-                        <li><a href="#">Zi</a></li>
-                        <li><a href="#">Fr</a></li>
-                    </ul>
+                                <img src="{{asset('img/config.png')}}" alt="">
+                                <span><i class="fa fa-arrow-circle-down" aria-hidden="true"></i><!--<i class="fa fa-angle-down"></i>--></span>
+                                <div  class="flag-dropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('sair') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
                 </div>
             </div>
             <a href="#" class="bk-btn">Painel Administrativo</a>
         </div>
         <nav class="mainmenu mobile-menu">
             <ul>
-                <li class="active"><a href="./index.blade.php">Início</a></li>
-                <li><a href="./rooms.html">Rooms</a></li>
-                <li><a href="./about-us.html">About Us</a></li>
-                <li><a href="./pages.html">Pages</a>
-                    <ul class="dropdown">
-                        <li><a href="./room-details.html">Room Details</a></li>
-                        <li><a href="#">Deluxe Room</a></li>
-                        <li><a href="#">Family Room</a></li>
-                        <li><a href="#">Premium Room</a></li>
+                <li class="active"><a href="{{route('index')}}">Início</a></li>
+
+                <li><a href="{{route('solicito.index')}}">Pedidos</a>
+                <ul class="dropdown">
+                        <li><a href="{{route('solicito.create')}}">Novo</a></li>
                     </ul>
                 </li>
-                <li><a href="./blog.html">News</a></li>
+            <li><a href="{{route('user.index')}}">Clientes</a>
+            <ul class="dropdown">
+                       <li><a href="{{route('user.create')}}">Novo</a></li>
+                    </ul>
+            </li>
+                <li><a href="{{route('funcionario.index')}}">Funcionarios</a>
+                <ul class="dropdown">
+                       <li><a href="{{route('funcionario.create')}}">Novo</a></li>
+                    </ul>
+                </li>
+                <li><a href="{{route('empresa.index')}}">Empresa</a>                                       
+                </li>
                 <li><a href="./contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -83,8 +94,8 @@
             <a href="#"><i class="fa fa-instagram"></i></a>
         </div>
         <ul class="top-widget">
-            <li><i class="fa fa-phone"></i> (096) XXXX XXXX</li>
-            <li><i class="fa fa-envelope"></i> exemplo@gmail.com</li>
+            <li><i class="fa fa-phone"></i>(96) 99171 3026</li>
+            <li><i class="fa fa-envelope"></i>sisnorte.ap@gmail.com</li>
         </ul>
     </div>
     <!-- Offcanvas Menu Section End -->
@@ -118,8 +129,8 @@
                             </div>
                         <a href="{{ route('admin.dashboard') }}" class="bk-btn">Painel Administrativo</a>
                             <div class="language-option">
-                                <img src="{{asset('img/flag.jpg')}}" alt="">
-                                <span>sair<!--<i class="fa fa-angle-down"></i>--></span>
+                                <img src="{{asset('img/config.png')}}" alt="">
+                                <span><i class="fa fa-arrow-circle-down" aria-hidden="true"></i><!--<i class="fa fa-angle-down"></i>--></span>
                                 <div  class="flag-dropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -131,8 +142,8 @@
                                     </form>
                                     <!--<ul>
                                         <li><a href="#">Zi</a></li>
-                                        <li><a href="#">Fr</a></li>-->
-                                    </ul>
+                                        <li><a href="#">Fr</a></li>
+                                    </ul>-->
                                 </div>
                             </div>
                         </div>
@@ -197,7 +208,7 @@
                         <form method="POST" action="{{ route('admin.login.submit') }}">
                             @csrf
                             <div class="check-date">
-                                <label for="email" class="label">Chave I:</label>
+                                <label for="email" class="label">Email:</label>
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
@@ -207,7 +218,7 @@
                                 @enderror                             
                             </div>
                             <div class="check-date">
-                                <label for="Senha" class="label">Chave II:</label>
+                                <label for="Senha" class="label">Senha:</label>
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')

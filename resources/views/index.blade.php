@@ -45,13 +45,18 @@
         </div>
         <div class="header-configure-area">
             <div class="language-option">
-                <img src="{{asset('img/flag.jpg')}}" alt="">
-                <span>EN <i class="fa fa-angle-down"></i></span>
-                <div class="flag-dropdown">
-                    <ul>
-                        <li><a href="#">Zi</a></li>
-                        <li><a href="#">Fr</a></li>
-                    </ul>
+                <img src="{{asset('img/config.png')}}" alt="">
+                <span><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></i><!--<i class="fa fa-angle-down"></i>--></span>
+                <div  class="flag-dropdown">
+
+                    <a class="dropdown-item" href="{{ route('index') }}">{{ __('Início') }}</a>
+                    <a class="dropdown-item" href="{{ route('login') }}">{{ __('Entrar') }}</a>
+
+                    <a class="dropdown-item" href="{{ route('home') }}">{{ __('Pedido') }}</a>
+
+
+                    <a class="dropdown-item" href="{{ route('register') }}">{{ __('Cadastro') }}</a>
+              
                 </div>
             </div>
             <a href="#" class="bk-btn">Booking Now</a>
@@ -81,8 +86,8 @@
             <a href="#"><i class="fa fa-instagram"></i></a>
         </div>
         <ul class="top-widget">
-            <li><i class="fa fa-phone"></i> (12) 345 67890</li>
-            <li><i class="fa fa-envelope"></i> info.colorlib@gmail.com</li>
+            <li><i class="fa fa-phone"></i>(96) 99171 3026<i class="fa fa-whatsapp" aria-hidden="true"></i></li>
+            <li><i class="fa fa-envelope"></i>sisnorte.ap@gmail.com</li>
         </ul>
     </div>
     <!-- Offcanvas Menu Section End -->
@@ -94,8 +99,8 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <ul class="tn-left">
-                            <li><i class="fa fa-phone"></i> (XX) XXXX XXXX</li>
-                            <li><i class="fa fa-envelope"></i> sisnorte.ap@gmail.com</li>
+                            <li><i class="fa fa-phone"></i>(96) 99171 3026<i class="fa fa-whatsapp" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-envelope"></i>sisnorte.ap@gmail.com</li>
                         </ul>
                     </div>
                     <div class="col-lg-6">
@@ -108,7 +113,26 @@
                             </div>
                             <a href="{{ route('login') }}" class="bk-btn">Login</a>
                             <div class="language-option">
-                                <a href="{{ route('register') }}" class="bk-btn">Cadastre-se</a>
+                               {{-- <a href="{{ route('register') }}" class="bk-btn">Cadastre-se</a> --}}
+                               <img src="{{asset('img/config.png')}}" alt="">
+                                <span><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></i><!--<i class="fa fa-angle-down"></i>--></span>
+                                <div  class="flag-dropdown">
+
+                                    <a class="dropdown-item" href="{{ route('index') }}">{{ __('Início') }}</a>
+                                    <a class="dropdown-item" href="{{ route('login') }}">{{ __('Entrar') }}</a>
+
+                                    <a class="dropdown-item" href="{{ route('home') }}">{{ __('Pedido') }}</a>
+
+
+                                    <a class="dropdown-item" href="{{ route('register') }}">{{ __('Cadastro') }}</a>
+                                   {{-- <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Sair') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form> --}}
 
                                <!-- <img src="img/flag.jpg" alt="">
                                 <span>EN <i class="fa fa-angle-down"></i></span>
@@ -154,7 +178,7 @@
                                 </ul>
                             </nav>
                             <div class="nav-right search-switch">
-                                <i class="icon_search"></i>
+                               {{-- <i class="icon_search"></i> --}}
                             </div>
                         </div>
                     </div>
@@ -173,6 +197,16 @@
                         <h1>SisNorte</h1>
                         <p>Sistema web para gerenciamento de clientes e serviços, além de fazer a divulgação da empresa Norte Dedetização Ltda.</p>
                         <a href="#contato" class="primary-btn">Para mais detalhes</a>
+
+                      {{--  @if ((Auth::user())) 
+
+                        <a href="" class="primary-btn"> teste</a>
+
+                           @foreach ($users as $user)
+                           <a href="#" class="bk-btn">{{ Auth::user()->name }}</a>
+                           @endforeach
+                           @endif--}}
+
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">

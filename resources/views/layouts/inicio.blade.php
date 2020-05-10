@@ -49,13 +49,22 @@
             <i class="icon_search"></i>
         </div>
         <div class="header-configure-area">
-            <div class="language-option">
-                <img src="{{asset('img/flag.jpg')}}" alt="">
-                <span>EN <i class="fa fa-angle-down"></i></span>
-                <div class="flag-dropdown">
-                    <ul>
+            <   <div class="language-option">
+                <img src="{{asset('img/config.png')}}" alt="">
+                <span><i class="fa fa-arrow-circle-down" aria-hidden="true"></i><!--<i class="fa fa-angle-down"></i>--></span>
+                <div  class="flag-dropdown">
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                        {{ __('sair') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" 
+                    method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    <!--<ul>
                         <li><a href="#">Zi</a></li>
-                        <li><a href="#">Fr</a></li>
+                        <li><a href="#">Fr</a></li>-->
                     </ul>
                 </div>
             </div>
@@ -107,8 +116,8 @@
             <a href="#"><i class="fa fa-instagram"></i></a>
         </div>
         <ul class="top-widget">
-            <li><i class="fa fa-phone"></i> (096) XXXX XXXX</li>
-            <li><i class="fa fa-envelope"></i> exemplo@gmail.com</li>
+            <li><i class="fa fa-phone"></i>(96) 99171 3026</li>
+            <li><i class="fa fa-envelope"></i>sisnorte.ap@gmail.com</li>
         </ul>
     </div>
     <!-- Offcanvas Menu Section End -->
@@ -123,7 +132,7 @@
                         <div class="tn-right">
 
                         <a href="{{ route('admin.dashboard') }}" 
-                        class="bk-btn">{{-- Auth::user()->name --}}</a>
+                        class="bk-btn"> {{Auth::user()->name}}</a>
 
                       <!--  <ul class="tn-left">
                             <li><i class="fa fa-envelope"></i> exemplo@gmail.com</li>
@@ -142,13 +151,13 @@
                             </div>
                         <a href="{{ route('admin.dashboard') }}" class="bk-btn">Painel Administrativo</a>
                             <div class="language-option">
-                                <img src="{{asset('img/flag.jpg')}}" alt="">
-                                <span>sair<!--<i class="fa fa-angle-down"></i>--></span>
+                                <img src="{{asset('img/config.png')}}" alt="">
+                                <span><i class="fa fa-arrow-circle-down" aria-hidden="true"></i><!--<i class="fa fa-angle-down"></i>--></span>
                                 <div  class="flag-dropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('sair') }}
+                                        {{ __('Sair') }}
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" 
                                     method="POST" style="display: none;">
@@ -170,7 +179,7 @@
                 <div class="row">
                     <div class="col-lg-2">
                         <div class="logo">
-                            <a href="{{route('index')}}">
+                            <a href="{{ route('admin.dashboard') }}">
                                 <img src="{{asset('img/logo.png')}}" alt="">
                             </a>
                         </div>

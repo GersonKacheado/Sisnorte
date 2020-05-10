@@ -35,6 +35,8 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+        flash('Seja bem vindo! Faça aqui sua solicitação de serviço. <i class="fa fa-wrench" aria-hidden="true"></i>')->success()->important();
+
         $this->middleware('guest')->except('logout');
     }
 }

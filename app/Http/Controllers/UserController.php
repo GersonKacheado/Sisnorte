@@ -195,4 +195,69 @@ class UserController extends Controller
         $a = User::where('name','LIKE','%'.$request->busca.'%')->get();
         return view('user.index',['users'=>$a, 'busca'=>$request->busca]);
     }
+
+  //  public function userEdit()
+    //{
+    //    $user = User::find(Auth::id());
+    //   return redirect()->back();
+
+     //   return view('resources/user/user_Edit.blade.php', compact('users'));
+    //}
+
+    
+//public function userEdit()
+  //  {
+    //    $user = User::find(Auth::id());
+
+      //  return view('resources/user/user_Edit', ['user' => $user]);
+   // }
+
+    public function userEdit()
+    {
+        $user = User::find(\Auth::id());
+        flash('Certo! você já pode atualizar seus dados. <i class="fa fa-pencil" aria-hidden="true"></i>')->warning()->important();
+        flash('Atenção! para aprovação de suas informações, confirme sua senha. <i class="fa fa-key" aria-hidden="true"></i>')->error()->important();
+
+        return view('user.user_Edit', ['user' => $user]);
+    }
+
+    public function userUpdate( Request $request, User $users)
+    {
+
+        $regras = [
+            'name'     => 'required | string | min:2 | max:50  ',
+            'telefone' => 'required | numeric | regex:/(0)[0-9]{11}/',
+            'email'    => 'required|',
+            'password' => 'required | string | min:8 | confirmed ',
+            'password_confirmation' => 'required | '
+        ];
+        $mensagens = [
+            'name.required' => 'Digite nome Válido!',
+            'name.min'      => 'O campo nome deve conter no mínimo 2 caracteres!',
+            'name.max'      => 'O campo nome deve conter no máximo 50 caracteres!',
+            'name.string' => 'Por favor, Digite um nome Válido!',            
+            'telefone.required' => 'Digite seu número de telefone!',
+            'telefone.numeric'  => 'O campo telefone deve  conter apenas números!',
+            'telefone.regex'    => 'Digite um número de telefone Válido! EX: 096988110099',
+            'email.required'    => 'Digite seu endereço de e-mail',
+            'email.email'       => 'Digite um e-mail Válido!',
+            'password.required' => 'Digite sua senha e confirme!',
+            'password.string' => 'Por favor! Digite um valor Válido',
+            'password.min'      => 'Digite no mínimo 8 caracteres!',
+            'password.confirmed' => 'As senhas não são iguais! Por favor, digite novamente e confirme!',
+            'password_confirmation.required' => 'Confirmação Obrigatória!',
+        ];
+        $request->validate($regras, $mensagens);
+
+        $user = User::find(\Auth::id());
+        $user->name = $request->name;
+        $user->telefone = $request->telefone;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->save();
+        flash('Ok! Seus dados foram atualizados com Sucesso! <i class="fa fa-pencil" aria-hidden="true"></i>')->success()->important();
+
+        return redirect()->route('home');
+
+    }
 }

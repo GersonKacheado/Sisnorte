@@ -36,4 +36,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    function solicito()
+    {
+        return $this->hasMany('App\Solicito');
+    }
+
 }

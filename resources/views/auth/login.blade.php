@@ -46,13 +46,20 @@
         </div>
         <div class="header-configure-area">
             <div class="language-option">
-                <img src="img/flag.jpg" alt="">
-                <span>EN <i class="fa fa-angle-down"></i></span>
-                <div class="flag-dropdown">
-                    <ul>
-                        <li><a href="#">Zi</a></li>
-                        <li><a href="#">Fr</a></li>
-                    </ul>
+                <img src="{{asset('img/config.png')}}" alt="">
+
+                                <span><i class="fa fa-arrow-circle-down" aria-hidden="true"></i><!--<i class="fa fa-angle-down"></i>--></span>
+                                     <div  class="flag-dropdown">
+     
+                                         <a class="dropdown-item" href="{{ route('index') }}">{{ __('Início') }}</a>
+                                         <a class="dropdown-item" href="{{ route('login') }}">{{ __('Entrar') }}</a>
+     
+                                         <a class="dropdown-item" href="{{ route('home') }}">{{ __('Pedido') }}</a>
+     
+     
+                                         <a class="dropdown-item" href="{{ route('register') }}">{{ __('Cadastro') }}</a>
+                                
+                            
                 </div>
             </div>
             <a href="#" class="bk-btn">Booking Now</a>
@@ -60,18 +67,17 @@
         <nav class="mainmenu mobile-menu">
             <ul>
                 <li class="active"><a href="{{route('index')}}">Início</a></li>
-                <li><a href="./rooms.html">Rooms</a></li>
-                <li><a href="./about-us.html">About Us</a></li>
-                <li><a href="./pages.html">Pages</a>
-                    <ul class="dropdown">
+                <li><a href="#empresa">Empresa</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#profissoes">Profissões</a></li>
+                <li><a href="#contato">Contato</a>
+                  <!--  <ul class="dropdown">
                         <li><a href="./room-details.html">Room Details</a></li>
-                        <li><a href="#">Deluxe Room</a></li>
+                        <li><a href="./blog-details.html">Blog Details</a></li>
                         <li><a href="#">Family Room</a></li>
                         <li><a href="#">Premium Room</a></li>
-                    </ul>
+                    </ul>-->
                 </li>
-                <li><a href="./blog.html">News</a></li>
-                <li><a href="./contact.html">Contact</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -82,8 +88,8 @@
             <a href="#"><i class="fa fa-instagram"></i></a>
         </div>
         <ul class="top-widget">
-            <li><i class="fa fa-phone"></i> (12) 345 67890</li>
-            <li><i class="fa fa-envelope"></i> info.colorlib@gmail.com</li>
+            <li><i class="fa fa-phone"></i>(96) 99171 3026<i class="fa fa-whatsapp" aria-hidden="true"></i></li>
+            <li><i class="fa fa-envelope"></i>sisnorte.ap@gmail.com</li>
         </ul>
     </div>
     <!-- Offcanvas Menu Section End -->
@@ -95,8 +101,8 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <ul class="tn-left">
-                            <li><i class="fa fa-phone"></i> (XX) XXXX XXXX</li>
-                            <li><i class="fa fa-envelope"></i> exemplo@gmail.com</li>
+                            <li><i class="fa fa-phone"></i>(96) 99171 3026<i class="fa fa-whatsapp" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-envelope"></i>sisnorte.ap@gmail.com</li>
                         </ul>
                     </div>
                     <div class="col-lg-6">
@@ -109,16 +115,19 @@
                             </div>
                         <a href="{{route('index')}}" class="bk-btn">Início</a>
                             <div class="language-option">
-                            <a href="{{ route('register') }}" class="bk-btn">Cadastre-se</a>
+                           {{-- <a href="{{ route('register') }}" class="bk-btn">Cadastre-se</a> --}}
+                           <img src="{{asset('img/config.png')}}" alt="">
 
-                               <!-- <img src="img/flag.jpg" alt="">
-                                <span>EN <i class="fa fa-angle-down"></i></span>
-                                <div class="flag-dropdown">
-                                    <ul>
-                                        <li><a href="#">Zi</a></li>
-                                        <li><a href="#">Fr</a></li>
-                                    </ul>
-                                </div>-->
+                           <span><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></i><!--<i class="fa fa-angle-down"></i>--></span>
+                                <div  class="flag-dropdown">
+
+                                    <a class="dropdown-item" href="{{ route('index') }}">{{ __('Início') }}</a>
+                                    <a class="dropdown-item" href="{{ route('login') }}">{{ __('Entrar') }}</a>
+
+                                    <a class="dropdown-item" href="{{ route('home') }}">{{ __('Pedido') }}</a>
+
+
+                                    <a class="dropdown-item" href="{{ route('register') }}">{{ __('Cadastro') }}</a>
                             </div>
                         </div>
                     </div>
@@ -130,7 +139,7 @@
                 <div class="row">
                     <div class="col-lg-2">
                         <div class="logo">
-                            <a href="./index.html">
+                            <a href="{{ route('index') }}">
                                 <img src="img/logo.png" alt="">
                             </a>
                         </div>
@@ -154,7 +163,7 @@
                                 </ul>
                             </nav>
                             <div class="nav-right search-switch">
-                                <i class="icon_search"></i>
+                               {{-- <i class="icon_search"></i> --}}
                             </div>
                         </div>
                     </div>
@@ -176,7 +185,7 @@
                             <div class="check-date">
                                 <label for="email" class="label">Email:</label>
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                 name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                 name="email" value="{{ old('email') }}"  autocomplete="email" autofocus>
                                  @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -186,7 +195,7 @@
                             <div class="check-date">
                                 <label for="Senha" class="label">Senha:</label>
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
-                                 name="password" required autocomplete="current-password">
+                                 name="password"  autocomplete="current-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">

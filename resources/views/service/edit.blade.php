@@ -12,9 +12,9 @@
             <label for="TIPO DE SERVIÇO" class="label">TIPO DE SERVIÇO:</label>
       
             <select name="solicito_id">
-              <option selected></option>   
+              <option selected>{{$service->solicito_id}}</option>   
                 @foreach($solicitos as $solicito)
-                  <option name="solicito_id" value="{{$solicito->id}}">{{$solicito->tipo}}</option>
+                  <option name="solicito_id" value="{{$service->solicito_id}}">{{$solicito->tipo}}</option>
                 @endforeach  
             </Select>
           </div> 

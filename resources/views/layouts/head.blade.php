@@ -47,16 +47,24 @@
         </div>
         <div class="header-configure-area">
             <div class="language-option">
-                <img src="{{ asset('img/flag.jpg') }}" alt="">
-                <span>EN <i class="fa fa-angle-down"></i></span>
-                <div class="flag-dropdown">
-                    <ul>
-                        <li><a href="#">Zi</a></li>
-                        <li><a href="#">Fr</a></li>
-                    </ul>
-                </div>
-            </div>
-            <a href="#" class="bk-btn">Booking Now</a>
+                <img src="{{asset('img/config.png')}}" alt="">
+                                <span><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></i><!--<i class="fa fa-angle-down"></i>--></span>
+                                <div  class="flag-dropdown">
+
+                                    <a class="dropdown-item" href="{{ route('index') }}">{{ __('Início') }}</a>
+                                    <a class="dropdown-item" href="{{ route('home') }}">{{ __('Pedido') }}</a>
+
+
+                                    <a class="dropdown-item" href="{{ route('editar') }}">{{ __('Perfil') }}</a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Sair') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
         </div>
         <nav class="mainmenu mobile-menu">
             <ul>
@@ -80,8 +88,8 @@
             <a href="#"><i class="fa fa-instagram"></i></a>
         </div>
         <ul class="top-widget">
-            <li><i class="fa fa-phone"></i> (12) 345 67890</li>
-            <li><i class="fa fa-envelope"></i> info.colorlib@gmail.com</li>
+            <li><i class="fa fa-phone"></i>(96) 99171 3026<i class="fa fa-whatsapp" aria-hidden="true"></i></li>
+            <li><i class="fa fa-envelope"></i>sisnorte.ap@gmail.com</li>
         </ul>
     </div>
     <!-- Offcanvas Menu Section End -->
@@ -93,8 +101,8 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <ul class="tn-left">
-                            <li><i class="fa fa-phone"></i> (12) 345 67890</li>
-                            <li><i class="fa fa-envelope"></i> info.colorlib@gmail.com</li>
+                            <li><i class="fa fa-phone"></i>(96) 99171 3026<i class="fa fa-whatsapp" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-envelope"></i>sisnorte.ap@gmail.com</li>
                         </ul>
                     </div>
                     <div class="col-lg-6">
@@ -107,21 +115,28 @@
                             </div>
                             <a href="#" class="bk-btn">{{ Auth::user()->name }}</a>
                             <div class="language-option">
-                                <img src="{{asset('img/flag.jpg')}}" alt="">
-                                <span>sair<!--<i class="fa fa-angle-down"></i>--></span>
+                                <img src="{{asset('img/config.png')}}" alt="">
+                                <span><i class="fa fa-arrow-circle-down" aria-hidden="true"></i><!--</i><i class="fa fa-angle-down"></i>--></span>
                                 <div  class="flag-dropdown">
+
+                                    <a class="dropdown-item" href="{{ route('index') }}">{{ __('Início') }}</a>
+                                    <a class="dropdown-item" href="{{ route('home') }}">{{ __('Pedido') }}</a>
+
+
+                                    <a class="dropdown-item" href="{{ route('editar') }}">{{ __('Perfil') }}</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('sair') }}
+                                        {{ __('Sair') }}
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+
                                     <!--<ul>
                                         <li><a href="#">Zi</a></li>
-                                        <li><a href="#">Fr</a></li>-->
-                                    </ul>
+                                        <li><a href="#">Fr</a></li>
+                                    </ul>-->
                                 </div>
                             </div>
                         </div>

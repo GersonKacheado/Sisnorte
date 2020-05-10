@@ -144,4 +144,11 @@ class EmpresaController extends Controller
 
             return redirect()->route('empresa.index');
     }
+
+    public function search(Request $request)
+    {
+
+        $a = Empresa::where('nomefantasia','LIKE','%'.$request->busca.'%')->get();
+        return view('empresa.index',['empresas'=>$a, 'busca'=>$request->busca]);
+    }
 }

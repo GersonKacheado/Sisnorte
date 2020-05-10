@@ -10,6 +10,8 @@ class AdminController extends Controller
         $this->middleware('auth:admin');
     }
     public function index() {
+        flash('Seja bem vindo ao Painel de Controle! Faça aqui o gerenciameto de recursos do sistema. <i class="fa fa-cog" aria-hidden="true"></i>')->success()->important();
+
         return view('admin');
     }
 

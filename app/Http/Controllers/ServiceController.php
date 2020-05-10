@@ -86,10 +86,15 @@ class ServiceController extends Controller
      */
     public function edit($id)
     {
+        $solicitos = Solicito::all();
+        $empresas = Empresa::all();
+        $funcionarios = Funcionario::all();
         if(!$service = Service::find($id))
 
             return redirect()->back();
-            return view('service.edit', compact('service'));
+            return view('service.edit', compact('service','solicitos','empresas','funcionarios'));
+
+          //  return view('service.edit', compact('service'));
     }
 
     /**

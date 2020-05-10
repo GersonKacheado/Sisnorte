@@ -4,9 +4,19 @@
 <div class="container">
     <div class="card text-center">
         <div class="card-header">
-            Listagem de {{ $empresas->count() }} empresas no total de {{ $empresas->total() }} 
+           {{-- Listagem de {{ $empresas->count() }} empresas no total de {{ $empresas->total() }} 
             exibindo agora registros de ({{ $empresas->firstItem() }}) a ({{ $empresas->lastItem() }})
+     --}}   </div>
+
+        <div class="card text-right">
+
+            <form method="POST" action="{{url('/empresa/search')}}">
+                @csrf
+                <input name="busca" type="text" placeholder="busca por Nome...">
+                <button type="submit"><i class="icon_search"></i></button>
+                </form>
         </div>
+
 <div class="card-body">
 
     <table class="table table-hover">
@@ -47,9 +57,9 @@
     </tbody>
 </table>
 </div>
-    <div class="card-footer">
+    {{-- <div class="card-footer">
         {{ $empresas->links() }}
-    </div>
+    </div> --}}
     </div>
 </div>
 
