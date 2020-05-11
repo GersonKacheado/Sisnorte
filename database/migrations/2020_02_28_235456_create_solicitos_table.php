@@ -24,6 +24,7 @@ class CreateSolicitosTable extends Migration
             $table->string('rua');
             $table->string('numero');
             $table->string('complemento')->nullable()->default(NULL);
+            $table->dateTime('data');
           
             $table->timestamps();
         });

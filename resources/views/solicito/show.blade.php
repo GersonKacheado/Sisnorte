@@ -11,6 +11,7 @@
                 <thead>
                     <th scope="col">SOLICITADO POR</th>
                     <th scope="col">TIPO</th>
+                    <th scope="col">NA DATA</th>
                     <th scope="col">ESTADO</th>
                     <th scope="col">MUNICIPIO</th>
                     <th scope="col">BAIRRO</th>
@@ -23,6 +24,7 @@
                     <tr>
                         <td>{{ $solicito->users_id }}</td>
                         <td>{{ $solicito->tipo }}</td>
+                        <td>{{ $solicito->data }}</td>
                         <td>{{ $solicito->estado }}</td>
                         <td>{{ $solicito->municipio }}</td>
                         <td>{{ $solicito->bairro }}</td>

@@ -91,6 +91,7 @@ class SolicitoController extends Controller
         $solicito->rua = $request->rua;
         $solicito->numero = $request->numero;
         $solicito->complemento = $request->complemento;
+        $solicito->data = now()->format('Y-m-d H:i:s');
 
         $solicito->save();
 

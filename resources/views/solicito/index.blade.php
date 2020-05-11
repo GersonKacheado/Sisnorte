@@ -20,6 +20,7 @@
                     <th scope="col">CÓDIGO</th>
                     <th scope="col">COD CLIENTE</th>
                     <th scope="col">TIPO</th>
+                    <th scope="col">NA DATA</th>
                     <th scope="col">CIDADE</th>
                     <th scope="col">BAIRRO</th>
                     <th colspan="2">GERENCIAR INFORMAÇÕES</th>
@@ -35,6 +36,7 @@
                         <td>{{ $solicito->id }}</td>
                         <td>{{ $solicito->users_id }}</td>                        
                         <td>{{ $solicito->tipo }}</td>
+                        <td>{{ $solicito->data }}</td>
                         <td>{{ $solicito->municipio }}</td>
                         <td>{{ $solicito->bairro}}</td>
                         <td > 
