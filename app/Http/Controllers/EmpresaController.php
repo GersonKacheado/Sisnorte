@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+ 
 use Illuminate\Http\Request;
 use App\Empresa;
 
@@ -38,17 +38,25 @@ class EmpresaController extends Controller
      */
     public function store(Request $request)
     {
-        $regras = [
-            'nomefantasia' => 'required |',
+       /* $regras = [
+            'nomefantasia' => 'required | min:2 | string ',
             'razaosocial' => 'required |',
             'cnpj' => 'required |'
         ];
         $mensagens = [
             'nomefantasia.required' => 'O preenchimento deste campo é obrigatório!',
+            'nomefantasia.min' => 'O campo nome deve conter no mínimo 2 caracteres!',
+            'nomefantasia.string' => 'Por favor, Digite um nome Válido!',
             'razaosocial.required' => 'O preenchimento deste campo é obrigatório!',
             'cnpj.required' => 'O preenchimento deste campo é obrigatório!'
         ];
-        $request->validate($regras, $mensagens);
+        $request->validate($regras, $mensagens);*/
+
+        $validacao = $request->validate([
+            'nomefantasia' => 'required | string | min:3 | max:30',
+            'razaosocial'  => 'required | min:3 | max:25 | ',
+            'cnpj'         => 'required | regex:/^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$/',
+        ]);
 
         $empresa = new Empresa;
         $empresa->nomefantasia = $request->nomefantasia;
@@ -103,7 +111,7 @@ class EmpresaController extends Controller
     public function update(Request $request, Empresa $empresa)
     {
 
-        $regras = [
+      /*  $regras = [
             'nomefantasia' => 'required |',
             'razaosocial' => 'required |',
             'cnpj' => 'required |'
@@ -113,7 +121,12 @@ class EmpresaController extends Controller
             'razaosocial.required' => 'O preenchimento deste campo é obrigatório!',
             'cnpj.required' => 'O preenchimento deste campo é obrigatório!'
         ];
-        $request->validate($regras, $mensagens);
+        $request->validate($regras, $mensagens);*/
+        $validacao = $request->validate([
+            'nomefantasia' => 'required | string | min:3 | max:30',
+            'razaosocial'  => 'required | min:3 | max:25 | ',
+            'cnpj'         => 'required | regex:/^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$/',
+        ]);
 
         $empresa->nomefantasia = $request->nomefantasia;
         $empresa->razaosocial = $request->razaosocial;

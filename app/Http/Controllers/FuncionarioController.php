@@ -43,8 +43,18 @@ class FuncionarioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request) 
     {
+
+        $validacao = $request->validate([
+            'nome'        => 'required | min:2 | max:25',
+            'rg'      => 'required | numeric |',
+            'cpf'   => 'required | regex:/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/',
+            'profissao'      => 'required | min:3 | max:25',
+            'telefone'         => 'required | numeric |',
+            'observacao' =>'nullable | min:3 | max:254',
+        ]);
+
         $funcionario = new Funcionario;
         $funcionario->nome = $request->nome;
         $funcionario->rg = $request->rg;
@@ -99,6 +109,15 @@ class FuncionarioController extends Controller
      */
     public function update(Request $request, Funcionario $funcionario)
     {
+        $validacao = $request->validate([
+            'nome'        => 'required | min:2 | max:25',
+            'rg'      => 'required | numeric |',
+            'cpf'   => 'required | regex:/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/',
+            'profissao'      => 'required | min:3 | max:25',
+            'telefone'         => 'required | numeric |',
+            'observacao' =>'nullable | min:3 | max:254',
+        ]);
+
         $funcionario->nome = $request->nome;
         $funcionario->rg = $request->rg;
         $funcionario->cpf = $request->cpf;

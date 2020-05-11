@@ -9,28 +9,27 @@
 
     <div class="check-date">
       <label for="NOME" class="label">NOME:</label>
-         <input type="text" name="nome" value="{{ old('nome') }}" class="form-control {{ $errors->has('nome') ? 'is-invalid' : ''}}" autocomplete="off" placeholder="Digite seu primeiro nome" /> 
+         <input type="text" name="nome" value="{{ old('nome') }}" class="form-control {{ $errors->has('nome') ? 'is-invalid' : ''}}" autocomplete="on" placeholder="Digite o nome completo" /> 
          @if($errors->has('nome'))
          <div class="invalid-feedback">
              {{$errors->has('first')}}
          </div>
-     @endif
-
-     @error('nome')
+        @endif
+        @error('nome')
          <span class="invalid-feedback" role="alert">
              <strong>{{ $message }}</strong>
          </span>
-     @enderror
+        @enderror
         </div>
+
      <div class="check-date">
       <label for="RG" class="label">RG:</label>
-        <input type="text" name="rg" value="{{ old('rg') }}" class="form-control {{ $errors->has('rg') ? 'is-invalid' : ''}}" autocomplete="off" placeholder="Ex: (96)98888 0000">
-        @if($errors->has('rg'))
+        <input type="text" name="rg" value="{{ old('rg') }}" class="form-control {{ $errors->has('rg') ? 'is-invalid' : ''}}" autocomplete="on" placeholder="Ex: 654321">
+                @if($errors->has('rg'))
                     <div class="invalid-feedback">
                         {{$errors->has('first')}}
                     </div>
                 @endif
-
                 @error('rg')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -39,8 +38,8 @@
       </div> 
       <div class="check-date">
         <label for="CPF" class="label">CPF:</label>
-        <input type="text" name="cpf" value="{{ old('cpf') }}" class="form-control {{ $errors->has('cpf') ? 'is-invalid' : ''}}" autocomplete="off" placeholder="Ex: (96)98888 0000">
-        @if($errors->has('cpf'))
+        <input type="text" name="cpf" value="{{ old('cpf') }}" class="form-control {{ $errors->has('cpf') ? 'is-invalid' : ''}}" autocomplete="on" placeholder="Ex: 987.654.321-12">
+                @if($errors->has('cpf'))
                     <div class="invalid-feedback">
                         {{$errors->has('first')}}
                     </div>
@@ -54,8 +53,8 @@
       </div> 
       <div class="check-date">
         <label for="PROFISSÃO" class="label">PROFISSÃO:</label>
-        <input type="text" name="profissao" value="{{ old('profissao') }}" class="form-control {{ $errors->has('profissao') ? 'is-invalid' : ''}}" autocomplete="off"   placeholder="Ex: (96)98888 0000">
-        @if($errors->has('profissao'))
+        <input type="text" name="profissao" value="{{ old('profissao') }}" class="form-control {{ $errors->has('profissao') ? 'is-invalid' : ''}}" autocomplete="on"   placeholder="Ex: Pintor">
+                @if($errors->has('profissao'))
                     <div class="invalid-feedback">
                         {{$errors->has('first')}}
                     </div>
@@ -69,8 +68,8 @@
       </div> 
       <div class="check-date">
         <label for="TELEFONE" class="label">TELEFONE:</label>
-        <input type="text" name="telefone" value="{{ old('telefone') }}" class="form-control {{ $errors->has('telefone') ? 'is-invalid' : ''}}" autocomplete="off"   placeholder="Ex: (96)98888 0000">
-        @if($errors->has('telefone'))
+        <input type="text" name="telefone" value="{{ old('telefone') }}" class="form-control {{ $errors->has('telefone') ? 'is-invalid' : ''}}" autocomplete="on"   placeholder="Ex: 096991713026">
+                @if($errors->has('telefone'))
                     <div class="invalid-feedback">
                         {{$errors->has('first')}}
                     </div>
@@ -87,17 +86,17 @@
       <div class="check-date">
      <label for="OBSERVAÇÃO" class="label">OBSERVAÇÃO:</label>
      <textarea type="text" name="observacao" class="form-control {{ $errors->has('observacao') ? 'is-invalid' : ''}}" placeholder="preenchimento opcional"  autocomplete="on" rows="3"> </textarea>
-     @if($errors->has('observacao'))
-         <div class="invalid-feedback">
-             {{$errors->has('first')}}
-         </div>
-     @endif
+            @if($errors->has('observacao'))
+                <div class="invalid-feedback">
+                    {{$errors->has('first')}}
+                </div>
+            @endif
 
-     @error('observacao')
-         <span class="invalid-feedback" role="alert">
-             <strong>{{ $message }}</strong>
-         </span>
-     @enderror
+            @error('observacao')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
         </div>
 
        

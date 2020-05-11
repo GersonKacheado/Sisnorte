@@ -23,9 +23,7 @@
                     <th scope="col">CIDADE</th>
                     <th scope="col">BAIRRO</th>
                     <th colspan="2">GERENCIAR INFORMAÇÕES</th>
-                    <th></th>
-                    <th><a href="{{ route('solicito.create') }}" class="btn btn-outline-success">+ Criar Novo</a>
-                    </th>
+                   
                 </thead>
                 <tbody>
                 @if ($solicitos->isEmpty())
@@ -35,7 +33,7 @@
 
                     <tr>
                         <td>{{ $solicito->id }}</td>
-                        <td>{{ $solicito->users->name }}</td>                        
+                        <td>{{ $solicito->users_id }}</td>                        
                         <td>{{ $solicito->tipo }}</td>
                         <td>{{ $solicito->municipio }}</td>
                         <td>{{ $solicito->bairro}}</td>

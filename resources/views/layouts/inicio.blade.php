@@ -92,7 +92,7 @@
                     </ul>
                 </li>
 
-                <li><a href="{{route('service.index')}}">Serviço</a>
+                <li><a href="{{route('service.index')}}">Serviços</a>
                     <ul class="dropdown">
                            <li><a href="{{route('service.create')}}">Novo</a></li>
                            <li><a href="{{route('service.index')}}">Ver todos</a></li>
@@ -131,8 +131,8 @@
                     <div class="col-lg-3">
                         <div class="tn-right">
 
-                        <a href="{{ route('admin.dashboard') }}" 
-                        class="bk-btn"> {{Auth::user()->name}}</a>
+                      {{--  <a href="{{ route('admin.dashboard') }}" 
+                        class="bk-btn"> {{Auth::user()->name}}</a> --}}
 
                       <!--  <ul class="tn-left">
                             <li><i class="fa fa-envelope"></i> exemplo@gmail.com</li>

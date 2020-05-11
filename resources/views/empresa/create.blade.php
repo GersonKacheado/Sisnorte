@@ -20,7 +20,7 @@
 
        <div class="check-date">
          <label for="NOME FANTASIA" class="label">NOME FANTASIA:</label>
-         <input type="text" name="nomefantasia" class="form-control {{ $errors->has('nomefantasia') ? 'is-invalid' : ''}}" autocomplete="off" placeholder="" /> 
+         <input type="text" name="nomefantasia" value="{{ old('nomefantasia') }}" class="form-control {{ $errors->has('nomefantasia') ? 'is-invalid' : ''}}" autocomplete="off" placeholder="" /> 
          @if($errors->has('nomefantasia'))
          <div class="invalid-feedback">
              {{$errors->has('first')}}
@@ -37,7 +37,7 @@
 
      <div class="check-date">
       <label for="RAZAO SOCIAL" class="label">RAZAO SOCIAL:</label>
-      <input type="text" name="razaosocial" class="form-control {{ $errors->has('razaosocial') ? 'is-invalid' : ''}}" autocomplete="off" placeholder="" /> 
+      <input type="text" name="razaosocial" value="{{ old('razaosocial') }}" class="form-control {{ $errors->has('razaosocial') ? 'is-invalid' : ''}}" autocomplete="off" placeholder="" /> 
       @if($errors->has('razaosocial'))
       <div class="invalid-feedback">
           {{$errors->has('first')}}
@@ -53,7 +53,7 @@
 
      <div class="check-date">
         <label for="CNPJ" class="label">CNPJ:</label>
-        <input type="text" name="cnpj" class="form-control {{ $errors->has('cnpj') ? 'is-invalid' : ''}}" autocomplete="off" placeholder="">
+        <input type="text" name="cnpj" value="{{ old('cnpj') }}" class="form-control {{ $errors->has('cnpj') ? 'is-invalid' : ''}}" autocomplete="off" placeholder="">
         @if($errors->has('cnpj'))
         <div class="invalid-feedback" >
             {{$errors->has('first')}}

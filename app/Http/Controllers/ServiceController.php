@@ -47,6 +47,15 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
+        $validacao = $request->validate([
+            'solicito_id'        => 'required',
+            'empresa_id'      => 'required',
+            'funcionario_id'   => 'required',
+            'data_criacao'      => 'required',
+            'data_execucao'         => 'required',
+            'descricao' =>'nullable | min:3 | max:254',
+        ]);
+
         $service = new Service;
         $service->solicito_id = $request->solicito_id;
         $service->empresa_id = $request->empresa_id;
@@ -104,8 +113,18 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id, Service $service)
+    public function update( $id,Request $request)
     {
+
+        $validacao = $request->validate([
+            'solicito_id'        => 'required',
+            'empresa_id'      => 'required',
+            'funcionario_id'   => 'required',
+            'data_criacao'      => 'required',
+            'data_execucao'         => 'required',
+            'descricao' =>'nullable | min:3 | max:254',
+        ]);
+
         $service = Service::find($id);
         $service->solicito_id = $request->solicito_id;
         $service->empresa_id = $request->empresa_id;

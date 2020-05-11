@@ -79,7 +79,7 @@ return [
     'max' => [
         'numeric' => 'The :attribute may not be greater than :max.',
         'file' => 'The :attribute may not be greater than :max kilobytes.',
-        'string' => 'The :attribute may not be greater than :max characters.',
+        'string' => 'Este campo não pode ter mais que :max caracteres!',
         'array' => 'The :attribute may not have more than :max items.',
     ],
     'mimes' => 'The :attribute must be a file of type: :values.',
@@ -95,7 +95,7 @@ return [
     'numeric' => 'Digite apenas números neste campo!',
     'password' => 'The password is incorrect.',
     'present' => 'The :attribute field must be present.',
-    'regex' => 'Digite um :attribute Válido! Ex: 096991713026',
+    'regex' => 'Digite um :attribute Válido!',
     'required' => 'O preenchimento deste campo é Obrigatório!',
     'required_if' => 'The :attribute field is required when :other is :value.',
     'required_unless' => 'The :attribute field is required unless :other is in :values.',

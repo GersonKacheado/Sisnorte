@@ -34,6 +34,7 @@
     </div>
 
     <!-- Offcanvas Menu Section Begin -->
+    <!-- Offcanvas Menu Section Begin -->
     <div class="offcanvas-menu-overlay"></div>
     <div class="canvas-open">
         <i class="icon_menu"></i>
@@ -47,37 +48,32 @@
         </div>
         <div class="header-configure-area">
             <div class="language-option">
-                <img src="{{asset('img/config.png')}}" alt="">
-                                <span><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></i><!--<i class="fa fa-angle-down"></i>--></span>
-                                <div  class="flag-dropdown">
-
-                                    <a class="dropdown-item" href="{{ route('index') }}">{{ __('Início') }}</a>
-                                    <a class="dropdown-item" href="{{ route('home') }}">{{ __('Pedido') }}</a>
-
-
-                                    <a class="dropdown-item" href="{{ route('editar') }}">{{ __('Perfil') }}</a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Sair') }}
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
+                <img src="img/flag.jpg" alt="">
+                <span>EN <i class="fa fa-angle-down"></i></span>
+                <div class="flag-dropdown">
+                    <ul>
+                        <li><a href="#">Zi</a></li>
+                        <li><a href="#">Fr</a></li>
+                    </ul>
+                </div>
+            </div>
+            <a href="#" class="bk-btn">Booking Now</a>
         </div>
         <nav class="mainmenu mobile-menu">
             <ul>
-                <li ><a href="{{route('index')}}">Início</a></li>
-                <li class="active"><a href="{{route('home')}}">Fazer Pedido</a></li>                                    
-                <li><a href="#contato">Contato</a>
-                  <!--  <ul class="dropdown">
+                <li class="active"><a href="./index.html">Home</a></li>
+                <li><a href="./rooms.html">Rooms</a></li>
+                <li><a href="./about-us.html">About Us</a></li>
+                <li><a href="./pages.html">Pages</a>
+                    <ul class="dropdown">
                         <li><a href="./room-details.html">Room Details</a></li>
-                        <li><a href="./blog-details.html">Blog Details</a></li>
+                        <li><a href="#">Deluxe Room</a></li>
                         <li><a href="#">Family Room</a></li>
                         <li><a href="#">Premium Room</a></li>
-                    </ul>-->
+                    </ul>
                 </li>
+                <li><a href="./blog.html">News</a></li>
+                <li><a href="./contact.html">Contact</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -88,8 +84,8 @@
             <a href="#"><i class="fa fa-instagram"></i></a>
         </div>
         <ul class="top-widget">
-            <li><i class="fa fa-phone"></i>(96) 99171 3026<i class="fa fa-whatsapp" aria-hidden="true"></i></li>
-            <li><i class="fa fa-envelope"></i>sisnorte.ap@gmail.com</li>
+            <li><i class="fa fa-phone"></i> (12) 345 67890</li>
+            <li><i class="fa fa-envelope"></i> info.colorlib@gmail.com</li>
         </ul>
     </div>
     <!-- Offcanvas Menu Section End -->
@@ -159,7 +155,7 @@
                             <nav class="mainmenu">
                                 <ul>
                                     <li ><a href="{{route('index')}}">Início</a></li>
-                                    <li class="active"><a href="{{route('home')}}">Fazer Pedido</a></li>                                    
+                                    <li class="active"><a href="{{route('index')}}">Fazer Pedido</a></li>                                    
                                     <li><a href="#contato">Contato</a>
                                       <!--  <ul class="dropdown">
                                             <li><a href="./room-details.html">Room Details</a></li>

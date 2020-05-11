@@ -8,7 +8,7 @@
                     <tr>
                         <th scope="col">CODIGO</th>
                         <th scope="col">PEDIDO Nº</th>
-                        <th scope="col">EMPRESA</th>
+                        <th scope="col">CRIADO EM</th>
                         <th scope="col">EXECUÇÃO EM</th>
                         <th scope="col">GERENCIAR INFORMAÇÃOES</th>
                         <th><a href="{{ route('service.create') }}" class="btn btn-outline-success">+ Criar Novo</a>
@@ -22,7 +22,7 @@
                     <tr>
                     <td>{{ $service->id }}</td>
                     <td>{{ $service->solicito_id }}</td>
-                    <td>{{ $service->empresa_id }}</td>
+                    <td>{{ $service->data_criacao }}</td>
                     <td>{{ $service->data_execucao }}</td>
                     <td>
                         <a href="{{ route('service.show', $service->id) }}" class="btn btn-outline-info">Detalhes</a>

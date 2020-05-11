@@ -90,7 +90,7 @@
 
       <div class="check-date">
         <label for="" class="label">OBSERVAÇÃO:</label>
-     <input type="text" name="observacao" value="{{ $funcionario->observacao }}" class="form-control {{ $errors->has('observacao') ? 'is-invalid' : ''}}" autocomplete="off"  placeholder="">
+     <input type="text" name="observacao" value="{{ $funcionario->observacao }}" class="form-control {{ $errors->has('observacao') ? 'is-invalid' : ''}}" autocomplete="off"  placeholder="Preenchimento opcional">
      @if($errors->has('observacao'))
      <div class="invalid-feedback">
        {{$errors->has('first')}}

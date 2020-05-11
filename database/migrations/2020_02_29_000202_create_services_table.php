@@ -23,7 +23,7 @@ class CreateServicesTable extends Migration
             $table->foreign('funcionario_id')->references('id')->on('funcionarios')->onDelete('cascade');          
             $table->date('data_execucao');
             $table->date('data_criacao');
-            $table->string('descricao');
+            $table->string('descricao')->nullable()->default(NULL);
             $table->timestamps();
         });
     }

@@ -9,34 +9,67 @@
             <div class="select-option">
                 <label for="TIPO DE SERVIÇO" class="label">TIPO DE SERVIÇO:</label>
           
-                <select name="solicito_id">
+                <select name="solicito_id" class="form-control {{ $errors->has('solicito_id') ? 'is-invalid' : ''}}">
                   <option selected></option>   
                     @foreach($solicitos as $solicito)
                       <option name="solicito_id" value="{{$solicito->id}}">{{$solicito->tipo}}</option>
                     @endforeach  
                 </Select>
+                @if($errors->has('solicito_id'))
+                <div class="invalid-feedback">
+                    {{$errors->has('first')}}
+                </div>
+            @endif
+
+            @error('solicito_id')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
               </div> 
 
               <div class="select-option">
                 <label for="EMPRESA PRESTADORA" class="label">EMPRESA PRESTADORA:</label>
           
-                <select name="empresa_id">
+                <select name="empresa_id" class="form-control {{ $errors->has('empresa_id') ? 'is-invalid' : ''}}">
                   <option selected></option>   
                     @foreach($empresas as $empresa)
                       <option name="empresa_id" value="{{$empresa->id}}">{{$empresa->nomefantasia}}</option>
                     @endforeach  
                 </Select>
+                @if($errors->has('empresa_id'))
+                <div class="invalid-feedback">
+                    {{$errors->has('first')}}
+                </div>
+            @endif
+
+            @error('empresa_id')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
               </div>
 
               <div class="select-option">
                 <label for="COLABORADOR" class="label">COLABORADOR:</label>
           
-                <select name="funcionario_id">
+                <select name="funcionario_id" class="form-control {{ $errors->has('funcionario_id') ? 'is-invalid' : ''}}">
                   <option selected></option>   
                     @foreach($funcionarios as $funcionario)
                       <option name="funcionario_id" value="{{$funcionario->id}}">{{$funcionario->nome}}</option>
                     @endforeach  
                 </Select>
+                @if($errors->has('funcionario_id'))
+                <div class="invalid-feedback">
+                    {{$errors->has('first')}}
+                </div>
+            @endif
+
+            @error('funcionario_id')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
               </div>
 
               <div class="check-date">

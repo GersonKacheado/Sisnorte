@@ -70,11 +70,9 @@ Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
 Route::get('/admin/login', 'Auth\AdminLoginController@index')->name('admin.login');
 
 Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
-
 Route::get('perfil/editar', 'UserController@userEdit')->name('editar');
 Route::patch('perfil/atualizar', 'UserController@userUpdate')->name('atualizar');
 
-//Route::get('user/userEdit', 'UserController@userEdit')->name('editar');
 Route::post('/user/search', 'UserController@search')->name('busca');
 Route::post('/funcionario/search', 'funcionarioController@search')->name('busca');
 Route::post('/solicito/search', 'solicitoController@search')->name('busca');

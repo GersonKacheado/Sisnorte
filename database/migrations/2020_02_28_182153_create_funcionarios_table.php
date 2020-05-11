@@ -20,7 +20,7 @@ class CreateFuncionariosTable extends Migration
             $table->string('cpf');
             $table->string('profissao');
             $table->string('telefone');
-            $table->string('observacao');
+            $table->string('observacao')->nullable()->default(NULL);
             $table->timestamps();
         });
     }

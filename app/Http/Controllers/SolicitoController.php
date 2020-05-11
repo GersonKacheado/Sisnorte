@@ -45,7 +45,7 @@ class SolicitoController extends Controller
     public function store(Request $request)
     {
         
-        $regras = [
+      /*  $regras = [
             'tipo' => 'required |',
             'estado' => 'required |',
             'municipio' => 'required |',
@@ -67,9 +67,19 @@ class SolicitoController extends Controller
             'complemento.required' => 'É necessario Preencher este campo!'
 
         ];
-        $request->validate($regras, $mensagens);
+        $request->validate($regras, $mensagens);*/
 
        // var_dump($request);
+
+       $validacao = $request->validate([
+        'tipo'        => 'required | ',
+        'estado'      => 'required |',
+        'municipio'   => 'required | ',
+        'bairro'      => 'required | min:3 | max:25',
+        'rua'         => 'required | min:2 | max:25',
+        'numero'      => 'required | max:6',
+        'complemento' =>'nullable | min:3 | max:254',
+    ]);
 
        // dd(auth()->user());
         $solicito = new Solicito;
@@ -130,6 +140,16 @@ class SolicitoController extends Controller
      */
     public function update(Request $request, Solicito $solicito)
     {
+        $validacao = $request->validate([
+            'tipo'        => 'required | min:5 | max:35',
+            'estado'      => 'required | min:4 | max:25',
+            'municipio'   => 'required | min:5 | max:25',
+            'bairro'      => 'required | min:3 | max:25',
+            'rua'         => 'required | min:2 | max:25',
+            'numero'      => 'required | max:6',
+            'complemento' =>'nullable | min:3 | max:254',
+        ]);
+
         $solicito->tipo = $request->tipo;
         $solicito->estado = $request->estado;
         $solicito->municipio = $request->municipio;

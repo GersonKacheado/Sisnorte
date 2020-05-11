@@ -14,7 +14,7 @@
             <select name="solicito_id">
               <option selected>{{$service->solicito_id}}</option>   
                 @foreach($solicitos as $solicito)
-                  <option name="solicito_id" value="{{$service->solicito_id}}">{{$solicito->tipo}}</option>
+                  <option  value="{{$service->solicito_id}}">{{$solicito->tipo}}</option>
                 @endforeach  
             </Select>
           </div> 
@@ -23,9 +23,9 @@
             <label for="EMPRESA PRESTADORA" class="label">EMPRESA PRESTADORA:</label>
       
             <select name="empresa_id">
-              <option selected></option>   
+              <option selected>{{$service->empresa_id}}</option>   
                 @foreach($empresas as $empresa)
-                  <option name="empresa_id" value="{{$empresa->id}}">{{$empresa->nomefantasia}}</option>
+                  <option value="{{$service->empresa_id}}">{{$empresa->nomefantasia}}</option>
                 @endforeach  
             </Select>
           </div>
@@ -34,16 +34,16 @@
             <label for="COLABORADOR" class="label">COLABORADOR:</label>
       
             <select name="funcionario_id">
-              <option selected></option>   
+              <option selected>{{$service->funcionario_id}}</option>   
                 @foreach($funcionarios as $funcionario)
-                  <option name="funcionario_id" value="{{$funcionario->id}}">{{$funcionario->nome}}</option>
+                  <option  value="{{$service->funcionario_id}}">{{$funcionario->nome}}</option>
                 @endforeach  
             </Select>
           </div>
 
           <div class="check-date">
             <label for="DATA DE EXECUÇÃO">DATA DE CRIAÇÃO:</label>
-            <input id="data_criacao" type="date" name="data_criacao" class="form-control {{ $errors->has('data_criacao') ? 'is-invalid' : ''}}"  value="{{ old('data_execucao') }}">
+            <input id="data_criacao" type="date" value="{{$service->data_criacao}}" name="data_criacao" class="form-control {{ $errors->has('data_criacao') ? 'is-invalid' : ''}}">
         @if($errors->has('data_criacao'))
             <div class="invalid-feedback">
                 {{$errors->has('first')}}
@@ -59,7 +59,7 @@
 
           <div class="check-date">
             <label for="DATA DE EXECUÇÃO">DATA DE EXECUÇÃO:</label>
-            <input id="data_execucao" type="date" class="form-control {{ $errors->has('data_execucao') ? 'is-invalid' : ''}}" name="data_execucao" value="{{ old('data_execucao') }}">
+            <input id="data_execucao" type="date" value="{{$service->data_execucao}}" class="form-control {{ $errors->has('data_execucao') ? 'is-invalid' : ''}}" name="data_execucao">
         @if($errors->has('data_execucao'))
             <div class="invalid-feedback">
                 {{$errors->has('first')}}
@@ -75,7 +75,7 @@
 
         <div class="check-date">
           <label for="DESCRIÇÃO" class="label">DESCRIÇÃO:</label>
-          <textarea type="text" name="descricao" class="form-control {{ $errors->has('descricao') ? 'is-invalid' : ''}}" placeholder="preenchimento opcional"  autocomplete="on" rows="3"> </textarea>
+          <input type="text" name="descricao" value="{{$service->descricao}}" class="form-control {{ $errors->has('descricao') ? 'is-invalid' : ''}}" placeholder="preenchimento opcional"  autocomplete="on"/>
           @if($errors->has('descricao'))
               <div class="invalid-feedback">
                   {{$errors->has('first')}}
