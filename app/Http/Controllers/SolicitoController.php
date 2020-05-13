@@ -19,10 +19,13 @@ class SolicitoController extends Controller
     {
         $users = User::all();
 
+
        // $solicitos = Solicito::All();
        $solicitos = Solicito::paginate(10);
+       $solicitos->users_id = auth()->id();
 
-        return view('solicito.index', array('solicitos' => $solicitos, 'busca'=>null), compact('users'));
+
+        return view('solicito.index', array('solicitos' => $solicitos, 'users' => $users));
     }
 
     /**

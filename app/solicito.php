@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class solicito extends Model
 {
-    function cliente()
+    function users()
     {
         return $this->belongsTo('App\User');
     }

@@ -34,7 +34,8 @@
 
                     <tr>
                         <td>{{ $solicito->id }}</td>
-                        <td>{{ $solicito->users_id }}</td>                        
+                    <td>{{$solicito->users->name}}</td>
+                                         {{-- <td>{{ $solicito->users_id }}</td>   --}}                   
                         <td>{{ $solicito->tipo }}</td>
                         <td>{{ $solicito->data }}</td>
                         <td>{{ $solicito->municipio }}</td>

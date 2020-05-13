@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\solicito;
 
 
 class UserController extends Controller
 {
     public $users;
+    public $solicitos;
 
        /**
      * Display a listing of the resource.
@@ -17,10 +19,11 @@ class UserController extends Controller
      */
     public function index()
     {
+        $solicitos = Solicito::All();
         //$users = User::All();
         $users = User::paginate(10);
 
-        return view('user.index', array('users' => $users));
+        return view('user.index', array('users' => $users, 'solicitos' => $solicitos));
   
     }
 
