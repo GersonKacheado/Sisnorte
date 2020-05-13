@@ -22,7 +22,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{ $solicito->users_id }}</td>
+                        <td>{{ $solicito->users->name }}</td>
                         <td>{{ $solicito->tipo }}</td>
                         <td>{{ $solicito->data }}</td>
                         <td>{{ $solicito->estado }}</td>
