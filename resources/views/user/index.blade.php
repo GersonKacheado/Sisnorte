@@ -8,19 +8,34 @@
     <div class="card text-center">
         <div class="card-header">
             
-            {{--Listagem de {{ $users->count() }} clientes no total de {{ $users->total() }} 
-            exibindo agora registros de ({{ $users->firstItem() }}) a ({{ $users->lastItem() }}) --}}
+            Listagem de {{ $users->count() }} clientes no total de {{ $users->total() }} 
+            exibindo agora registros de ({{ $users->firstItem() }}) a ({{ $users->lastItem() }}) 
             </div>
                             
         </div>
+
+
         <div class="card text-right">
+
+            <form method="GET" action="{{url('/user')}}">
+                <input name="busca" value="{{ $busca }}" type="text" placeholder="busca por Nome...">
+                <button type="submit"><i class="icon_search"></i></button>
+
+                @if ($busca)
+                    <a href="{{ url('/user') }}" class="btn btn-primary">Limpar</a>
+                @endif
+            </form>
+        </div>
+
+
+       {{-- <div class="card text-right">
 
             <form method="POST" action="{{url('/user/search')}}">
                 @csrf
                 <input name="busca" type="text" placeholder="busca por Nome...">
                 <button type="submit"><i class="icon_search"></i></button>
                 </form>
-        </div>
+        </div> --}}
         <div class="card-body">
             <table class="table table-hover">
                 <thead>
@@ -69,9 +84,9 @@
                 </tbody>
             </table>
         </div>
-        {{-- <div class="card-footer">
+         <div class="card-footer">
             {{ $users->links() }}
-        </div> --}}
+        </div> 
     </div>
 
 

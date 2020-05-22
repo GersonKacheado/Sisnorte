@@ -84,8 +84,8 @@
             <a href="#"><i class="fa fa-instagram"></i></a>
         </div>
         <ul class="top-widget">
-            <li><i class="fa fa-phone"></i> (12) 345 67890</li>
-            <li><i class="fa fa-envelope"></i> info.colorlib@gmail.com</li>
+            <li><i class="fa fa-phone"></i>(96) 99171 3026<i class="fa fa-whatsapp" aria-hidden="true"></i></li>
+            <li><i class="fa fa-envelope"></i>sisnorte.ap@gmail.com</li>
         </ul>
     </div>
     <!-- Offcanvas Menu Section End -->
@@ -155,7 +155,7 @@
                             <nav class="mainmenu">
                                 <ul>
                                     <li ><a href="{{route('index')}}">Início</a></li>
-                                    <li class="active"><a href="{{route('index')}}">Fazer Pedido</a></li>                                    
+                                    <li class="active"><a href="{{route('home')}}">Fazer Pedido</a></li>                                    
                                     <li><a href="#contato">Contato</a>
                                       <!--  <ul class="dropdown">
                                             <li><a href="./room-details.html">Room Details</a></li>

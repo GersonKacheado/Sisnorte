@@ -45,11 +45,11 @@
         <div class="canvas-close">
             <i class="icon_close"></i>
         </div>
-        <div class="search-icon  search-switch">
-            <i class="icon_search"></i>
-        </div>
+       {{-- <div class="search-icon  search-switch">
+           <!-- <i class="icon_search"></i> -->
+        </div> --}}
         <div class="header-configure-area">
-            <   <div class="language-option">
+               <div class="language-option">
                 <img src="{{asset('img/config.png')}}" alt="">
                 <span><i class="fa fa-arrow-circle-down" aria-hidden="true"></i><!--<i class="fa fa-angle-down"></i>--></span>
                 <div  class="flag-dropdown">
@@ -92,12 +92,10 @@
                     </ul>
                 </li>
 
-                <li><a href="{{route('service.index')}}">Serviços</a>
+                <li><a href="{{route('pedidosAceitos')}}">Serviços</a>
                     <ul class="dropdown">
-                           <li><a href="{{route('service.create')}}">Novo</a></li>
-                           <li><a href="{{route('service.index')}}">Ver todos</a></li>
                         </ul>
-                    </li>
+                        </li>
 
                 <li><a href="{{route('empresa.index')}}">Empresa</a>
                     <ul class="dropdown">
@@ -208,16 +206,15 @@
                                         </ul>
                                     </li>
 
-                                    <li><a href="{{route('service.index')}}">Serviço</a>
+                                    <li><a href="{{route('pedidosAceitos')}}">Serviço</a>
                                         <ul class="dropdown">
-                                               <li><a href="{{route('service.create')}}">Novo</a></li>
-                                               <li><a href="{{route('service.index')}}">Ver todos</a></li>
+                                              
                                             </ul>
                                         </li>
 
                                     <li><a href="{{route('empresa.index')}}">Empresa</a>
                                         <ul class="dropdown">
-                                    <li><a href="{{route('empresa.create')}}">Novo</a></li>
+                                   <!-- <li><a href="{{route('empresa.create')}}">Novo</a></li> -->
                                     <li><a href="{{route('empresa.index')}}">Ver todos</a></li>
                                         </ul>
                                     </li>
@@ -252,6 +249,6 @@
         <script src="{{asset('js/jquery.slicknav.js')}}"></script>
         <script src="{{asset('js/owl.carousel.min.js')}}"></script>
         <script src="{{asset('js/main.js')}}"></script>
-        
+ 
      </body>
 </html>

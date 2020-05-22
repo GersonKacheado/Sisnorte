@@ -62,14 +62,14 @@
                             
                 </div>
             </div>
-            <a href="#" class="bk-btn">Booking Now</a>
+            <a href="#" class="bk-btn"></a>
         </div>
         <nav class="mainmenu mobile-menu">
             <ul>
                 <li class="active"><a href="{{route('index')}}">Início</a></li>
-                <li><a href="#empresa">Empresa</a></li>
+               <!-- <li><a href="#empresa">Empresa</a></li>
                 <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#profissoes">Profissões</a></li>
+                <li><a href="#profissoes">Profissões</a></li> -->
                 <li><a href="#contato">Contato</a>
                   <!--  <ul class="dropdown">
                         <li><a href="./room-details.html">Room Details</a></li>
@@ -148,10 +148,12 @@
                         <div class="nav-menu">
                             <nav class="mainmenu">
                                 <ul>
-                                    <li class="active"><a href="{{route('index')}}">Início</a></li>
-                                    <li><a href="#empresa">Empresa</a></li>
+                                    <li class=""><a href="{{route('index')}}">Início</a></li>
+                                 <!--   <li><a href="#empresa">Empresa</a></li>
                                     <li><a href="#servicos">Serviços</a></li>
-                                    <li><a href="#profissoes">Profissões</a></li>
+                                    <li><a href="#profissoes">Profissões</a></li> -->
+                                    <li class="active"><a href="{{route('home')}}">Fazer Pedido</a></li>
+
                                     <li><a href="#contato">Contato</a>
                                       <!--  <ul class="dropdown">
                                             <li><a href="./room-details.html">Room Details</a></li>

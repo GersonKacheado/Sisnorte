@@ -14,7 +14,7 @@ class CreateServicesTable extends Migration
     public function up()
     {
         Schema::create('services', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id');/*
             $table->bigInteger('solicito_id')->unsigned();
             $table->foreign('solicito_id')->references('id')->on('solicitos')->onDelete('cascade');
             $table->bigInteger('empresa_id')->unsigned();
@@ -23,9 +23,9 @@ class CreateServicesTable extends Migration
             $table->foreign('funcionario_id')->references('id')->on('funcionarios')->onDelete('cascade');          
             $table->date('data_execucao');
             $table->date('data_criacao');
-            $table->string('descricao')->nullable()->default(NULL);
+            $table->string('descricao')->nullable()->default(NULL);*/
             $table->timestamps();
-        });
+        }); 
     }
 
     /**

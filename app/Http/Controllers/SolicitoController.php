@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Solicito;
-use App\user;
+use App\User;
+use App\Funcionario;
+use App\Empresa;
 
 
 
@@ -15,17 +17,30 @@ class SolicitoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+ 
+   /* public function index(Request $request)
+    {
+      //  dd($request);
+        $query = Solicito::query();
+        $busca = $request->get('busca');
+
+        if ($busca) {
+            $query = $query->where('aceito','tipo', 'LIKE','%'. $busca .'%');
+        }
+        $solicitos = $query->paginate(10);
+        return view('solicito.index', compact('solicitos','busca')); 
+    }*/
+
+ 
+ 
+       public function index()
     {
         $users = User::all();
+       #  $solicitos = Solicito::All();
 
-
-       // $solicitos = Solicito::All();
-       $solicitos = Solicito::paginate(10);
-       $solicitos->users_id = auth()->id();
-
-
-        return view('solicito.index', array('solicitos' => $solicitos, 'users' => $users));
+        $solicitos = Solicito::where('aceito', false)->get();
+      //  $solicitos = Solicito::paginate(10);
+        return view('solicito.index', compact('solicitos', 'users'));
     }
 
     /**
@@ -112,13 +127,16 @@ class SolicitoController extends Controller
      */
     public function show($id)
     {
+        $funcionarios = Funcionario::all();
+        $empresas = Empresa::all();
+
         if(!$solicito = Solicito::find($id))
 
         return redirect()->back();
 
-            return view('solicito.show', [
-                        'solicito' => $solicito
-                    ]);
+          //  return view('solicito.show', ['solicito' => $solicito]);
+          return view('solicito.show', compact('solicito','funcionarios','empresas'));
+
     }
 
     /**
@@ -129,10 +147,13 @@ class SolicitoController extends Controller
      */
     public function edit($id)
     {
+        $funcionarios = Funcionario::all();
+        $empresas = Empresa::all();
+
         if(!$solicito = Solicito::find($id))
 
         return redirect()->back();
-        return view('solicito.edit', compact('solicito'));
+        return view('solicito.edit', compact('solicito','funcionarios','empresas'));
     }
 
     /**
@@ -145,7 +166,7 @@ class SolicitoController extends Controller
     public function update(Request $request, Solicito $solicito)
     {
         $validacao = $request->validate([
-            'tipo'        => 'required | min:5 | max:35',
+            'tipo'        => 'required | min:5 | max:40',
             'estado'      => 'required | min:4 | max:25',
             'municipio'   => 'required | min:5 | max:25',
             'bairro'      => 'required | min:3 | max:25',
@@ -154,6 +175,7 @@ class SolicitoController extends Controller
             'complemento' =>'nullable | min:3 | max:254',
         ]);
 
+        $solicito->empresa_id = $request->empresa_id;
         $solicito->tipo = $request->tipo;
         $solicito->estado = $request->estado;
         $solicito->municipio = $request->municipio;
@@ -161,11 +183,16 @@ class SolicitoController extends Controller
         $solicito->rua = $request->rua;
         $solicito->numero = $request->numero;
         $solicito->complemento = $request->complemento;
+        $solicito->funcionario_id = $request->funcionario_id;
+        $solicito->data_criacao = $request->data_criacao;
+        $solicito->data_execucao = $request->data_execucao;
+        $solicito->descricao = $request->descricao;
+     //   dd($request->all());
         $solicito->save();
 
         flash('Mais um registro foi atualizado com Sucesso! <i class="fa fa-pencil" aria-hidden="true"></i>')->warning()->important();
 
-        return redirect()->route('solicito.index');
+        return redirect()->route('pedidosAceitos');
     }
 
     /**
@@ -194,4 +221,38 @@ class SolicitoController extends Controller
         $a = Solicito::where('tipo','LIKE','%'.$request->busca.'%')->get();
         return view('solicito.index',['solicitos'=>$a, 'busca'=>$request->busca]);
     }
+
+    public function aceito($id)
+    {
+      //  $solicitos = Solicito::paginate(10);
+        $solicito = Solicito::find($id);
+        $solicito->aceito = true;
+        $solicito->save();
+        flash('Solicitação de serviço CONFIRMADA com Sucesso! Para mais detalhes, atualize os dados do serviço. <i class="fa fa-whatsapp" aria-hidden="true"></i>')->success()->important();
+        return redirect()->route('pedidosAceitos');
+
+    }
+
+    public function cancela($id)
+    {
+      //  $solicitos = Solicito::paginate(10);
+        $solicito = Solicito::find($id);
+        $solicito->aceito = false;
+        $solicito->save();
+
+        return redirect()->route('solicito.index');
+
+    }
+
+    public function confirmado()
+    {
+        $users = User::all();
+       //  $solicitos = Solicito::All();
+       $solicitos = Solicito::paginate(10);
+
+        $solicitos = Solicito::where('aceito', true)->get();
+
+        return view('solicito.aceito', array('solicitos' => $solicitos, 'users' => $users));
+    }
+
 }

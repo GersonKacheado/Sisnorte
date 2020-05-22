@@ -78,6 +78,10 @@ Route::post('/funcionario/search', 'funcionarioController@search')->name('busca'
 Route::post('/solicito/search', 'solicitoController@search')->name('busca');
 Route::post('/empresa/search', 'empresaController@search')->name('busca');
 
+Route::patch('pedido/aceito/{id}', 'solicitoController@aceito')->name('aceito');
+Route::get('pedido/confirmado', 'solicitoController@confirmado')->name('pedidosAceitos');
+
+Route::patch('pedido/cancela/{id}', 'solicitoController@cancela')->name('cancela');
 
 
 

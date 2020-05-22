@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use App\solicito;
+use App\Solicito;
 
 
 class UserController extends Controller
@@ -17,7 +17,26 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    public function index(Request $request)
+    {
+        $query = User::query();
+
+        $busca = $request->get('busca');
+        // usuario está tentando aplicar um filtro
+        if ($busca) {
+            $query = $query->where('name', 'LIKE','%'. $busca .'%');
+        }
+
+        $users = $query->paginate(10);
+
+        return view('user.index', compact('users', 'busca'));
+  
+    }
+
+
+
+   /* public function index()
     {
         $solicitos = Solicito::All();
         //$users = User::All();
@@ -25,7 +44,7 @@ class UserController extends Controller
 
         return view('user.index', array('users' => $users, 'solicitos' => $solicitos));
   
-    }
+    }*/
 
     /**
      * Show the form for creating a new resource.
@@ -263,4 +282,6 @@ class UserController extends Controller
         return redirect()->route('home');
 
     }
+
+   
 }

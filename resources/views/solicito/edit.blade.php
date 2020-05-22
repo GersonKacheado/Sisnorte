@@ -13,7 +13,7 @@
        <input type="text" name="tipo" value="{{ $solicito->tipo }}" class="form-control {{ $errors->has('tipo') ? 'is-invalid' : ''}}" autocomplete="on"   placeholder="" /> 
        @if($errors->has('tipo'))
        <div class="invalid-feedback">
-           {{$errors->has('first')}}
+           {{$errors->has('first')}} 
        </div>
       @endif
       
@@ -122,10 +122,28 @@
  @enderror
   </div> 
 
+  <div class="select-option">
+    <label for="EMPRESA PRESTADORA" class="label">EMPRESA PRESTADORA:</label>
+    <select name="empresa_id">
+      @foreach($empresas as $empresa) 
+         <option @if($solicito->empresa_id === $empresa->id) selected @endif value="{{$empresa->id}}">{{$empresa->nomefantasia}}</option>
+        @endforeach  
+    </Select>
+  </div> 
+
+  <div class="select-option">
+    <label for="COLABORADOR" class="label">COLABORADOR:</label>
+    <select name="funcionario_id">
+        @foreach($funcionarios as $funcionario)
+          <option @if($solicito->funcionario_id === $funcionario->id) selected @endif value="{{$funcionario->id}}">{{$funcionario->nome}}</option>
+        @endforeach  
+    </Select>
+  </div>
+
   <div class="d-flex">
     <div class="form-group ml-2">
       <input type="submit" name="btnEnviar" class="btn btn-success py-3 px-4">
-      <a href="{{ route('solicito.index') }}" class="btn btn-danger py-3 px-4">Cancelar</a>
+      <a href="{{ route('pedidosAceitos') }}" class="btn btn-danger py-3 px-4">Cancelar</a>
 
     </div>
     

@@ -156,4 +156,10 @@ class FuncionarioController extends Controller
         $a = Funcionario::where('profissao','LIKE','%'.$request->busca.'%')->get();
         return view('funcionario.index',['funcionarios'=>$a, 'busca'=>$request->busca]);
     }
+
+    public function getCpfAttribute()
+    {
+        $cpf = $this->attributes['cpf'];
+        return substr($cpf, 0,3);
+    }
 }

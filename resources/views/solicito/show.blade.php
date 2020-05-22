@@ -9,31 +9,34 @@
             </div>
             <table class="table table-hover">
                 <thead>
-                    <th scope="col">SOLICITADO POR</th>
-                    <th scope="col">TIPO</th>
-                    <th scope="col">NA DATA</th>
-                    <th scope="col">ESTADO</th>
+                    <th scope="col">CLIENTE</th>
+                    <th scope="col">PEDIDO</th>
+                    <th scope="col">DATA</th>
+                  <!--  <th scope="col">ESTADO</th> -->
                     <th scope="col">MUNICIPIO</th>
-                    <th scope="col">BAIRRO</th>
-                    <th scope="col">RUA</th>
-                    <th scope="col">NÚMERO</th>
+                    <th scope="col">LOGRADOURO</th>
+                    <!-- <th scope="col">RUA</th>
+                   <th scope="col">NÚMERO</th> -->
                     <th scope="col">COMPLEMENTO</th>
-                    <th colspan="2">GERENCIAR REGISTRO</th>                    
+                    <th scope="col">COLABORADOR</th>
+                    <th scope="col">EMPRESA</th>
+                    <th colspan="2">GERENCIADOR</th>                    
                 </thead>
                 <tbody>
                     <tr>
                         <td>{{ $solicito->users->name }}</td>
                         <td>{{ $solicito->tipo }}</td>
                         <td>{{ $solicito->data }}</td>
-                        <td>{{ $solicito->estado }}</td>
+                        {{-- <td>{{ $solicito->estado }}</td> --}}
                         <td>{{ $solicito->municipio }}</td>
-                        <td>{{ $solicito->bairro }}</td>
-                        <td>{{ $solicito->rua }}</td>
-                        <td>{{ $solicito->numero }}</td>
+                        <td>Bairro: {{ $solicito->bairro }},</br>Rua: {{ $solicito->rua }}, Nº {{ $solicito->numero }}</td>
+                        
+                       {{--     <td>{{ $solicito->numero }}</td> --}}
                         <td>{{ $solicito->complemento }}</td>
+                    <td>{{$solicito->funcionario_id}}</td>
+                    <td>{{$solicito->empresa_id}}</td>
                         <td>
-                            <a href="{{ route('solicito.edit', $solicito->id) }}" class="btn btn-outline-warning">Editar</a>
-                            <a href="{{ route('solicito.index') }}" class="btn btn-outline-info">Voltar</a>
+                            <a href="{{ route('solicito.edit', $solicito->id) }}" class="btn btn-outline-warning">Atualizar Dados</a>
                         </td>
                             <td>
                                 <form action="{{ route('solicito.destroy', $solicito->id) }}" method="POST">
@@ -41,6 +44,8 @@
                                 @method('DELETE')
                             <button type="submit" class="btn btn-outline-danger">Apagar</button>                        
                         </form>
+                        <a href="{{ route('pedidosAceitos') }}" class="btn btn-outline-info">Voltar</a>
+
                             </td>   
                     </tr>
                 </tbody>

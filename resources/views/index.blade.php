@@ -41,7 +41,7 @@
             <i class="icon_close"></i>
         </div>
         <div class="search-icon  search-switch">
-            <i class="icon_search"></i>
+         {{--   <i class="icon_search"></i> --}}
         </div>
         <div class="header-configure-area">
             <div class="language-option">
@@ -59,7 +59,7 @@
               
                 </div>
             </div>
-            <a href="#" class="bk-btn">Booking Now</a>
+        <a href="{{route('home')}}" class="bk-btn">Fazer um pedido</a>
         </div>
         <nav class="mainmenu mobile-menu">
             <ul>
@@ -162,8 +162,8 @@
                         <div class="nav-menu">
                             <nav class="mainmenu">
                                 <ul>
-                                    <li ><a href="{{route('index')}}">Início</a></li>
-                                    <li class="active"><a href="{{route('home')}}">Fazer Pedido</a></li>
+                                    <li class="active"><a href="{{route('index')}}">Início</a></li>
+                                    <li ><a href="{{route('home')}}">Fazer Pedido</a></li>
                                     <li><a href="#empresa">Empresa</a></li>
                                     <li><a href="#servicos">Serviços</a></li>
                                     

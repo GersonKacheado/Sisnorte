@@ -26,7 +26,7 @@
             <th scope="col">NOME FANTASIA</th>
             <th scope="col">CNPJ</th>
             <th scope="col">GERENCIAR INFORMAÇÕES</th>
-            <th><a href="{{ route('empresa.create') }}" class="btn btn-outline-success">+ Criar Novo</a>
+          <!--  <th><a href="{{ route('empresa.create') }}" class="btn btn-outline-success">+ Criar Novo</a>-->
        </tr>
     </thead>
     <tbody>
@@ -43,13 +43,13 @@
         <a href="{{ route('empresa.show', $empresa->id) }}" class="btn btn-outline-info">Detalhes</a>
         <a href="{{ route('empresa.edit', $empresa->id) }}" class="btn btn-outline-warning">Editar</a>
     </td>
-    <td colspan="2">
+  {{--  <td colspan="2">
         <form action="{{ route('empresa.destroy', $empresa->id) }}" method="POST">
             @csrf
             @method('DELETE')
         <button type="submit" class="btn btn-outline-danger">Apagar</button>                        
     </form>                        
-    </td>
+    </td> --}}
     </tr>
     @endforeach
     @endif

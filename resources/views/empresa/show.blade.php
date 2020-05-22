@@ -25,13 +25,13 @@
                     <a href="{{ route('empresa.edit', $empresa->id) }}" class="btn btn-outline-warning">Editar</a>
                     <a href="{{ route('empresa.index') }}" class="btn btn-outline-info">Voltar</a>
                 </td>
-                <td>
+               {{-- <td>
                     <form action="{{ route('empresa.destroy', $empresa->id) }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-outline-danger">Apagar</button>                        
                     </form>
-                </td>     
+                </td>  --}}   
                 </tr>
             </tbody>
         </table>
