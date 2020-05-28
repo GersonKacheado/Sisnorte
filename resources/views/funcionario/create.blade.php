@@ -103,8 +103,8 @@
 
         <div class="d-flex">
           <div class="form-group ml-2">
-              <input type="submit" name="btnEnviar" class="btn btn-success">
-              <a href="{{ route('funcionario.index') }}" class="btn btn-primary">Voltar</a>
+              <input type="submit" name="btnEnviar" class="btn btn-success py-3 px-4">
+              <a href="{{ route('funcionario.index') }}" class="btn btn-danger py-3 px-4">Cancelar</a>
           </div>
       </div>  
     </form>

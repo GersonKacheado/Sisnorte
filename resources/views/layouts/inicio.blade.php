@@ -7,6 +7,7 @@
         <meta name="keywords" content="Sona, unica, creative, html">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="icon" href="{{asset('img/fialig.jpg')}}" type="image/x-icon" />
         <title>Sistema Integrado de Serviços - SisNorte</title>
     
         <!-- Google Font -->
@@ -72,7 +73,7 @@
         </div>
         <nav class="mainmenu mobile-menu">
             <ul>
-                <li class="active"><a href="{{route('index')}}">Início</a></li>
+                <li class="active"><a href="{{route('admin.dashboard')}}">Início</a></li>
 
                 <li><a href="{{route('solicito.index')}}">Pedidos</a>
                 <ul class="dropdown">
@@ -186,7 +187,7 @@
                         <div class="nav-menu">
                             <nav class="mainmenu">
                                 <ul>
-                                    <li class="active"><a href="{{route('index')}}">Início</a></li>
+                                    <li class="active"><a href="{{route('admin.dashboard')}}">Início</a></li>
 
                                     <li><a href="{{route('solicito.index')}}">Pedidos</a>
                                     <ul class="dropdown">

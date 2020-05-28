@@ -7,6 +7,8 @@
     <meta name="keywords" content="Sona, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="{{asset('img/fialig.jpg')}}" type="image/x-icon" />
+
     <title>Sistema Integrado de Serviços - SisNorte</title>
 
     <!-- Google Font -->

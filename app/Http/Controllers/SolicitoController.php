@@ -37,8 +37,11 @@ class SolicitoController extends Controller
     {
         $users = User::all();
        #  $solicitos = Solicito::All();
+     //  $solicitos = Solicito::where('aceito', false)->get();
 
-        $solicitos = Solicito::where('aceito', false)->get();
+        $solicitos = Solicito::orderBy('created_at','DESC')
+        ->where('aceito', false)        
+        ->paginate(10);
       //  $solicitos = Solicito::paginate(10);
         return view('solicito.index', compact('solicitos', 'users'));
     }
@@ -248,9 +251,12 @@ class SolicitoController extends Controller
     {
         $users = User::all();
        //  $solicitos = Solicito::All();
-       $solicitos = Solicito::paginate(10);
+      // $solicitos = Solicito::paginate(10);
+        //$solicitos = Solicito::where('aceito', true)->get();
+        $solicitos = Solicito::orderBy('updated_at','DESC')
+        ->where('aceito', true)
+        ->paginate(10);
 
-        $solicitos = Solicito::where('aceito', true)->get();
 
         return view('solicito.aceito', array('solicitos' => $solicitos, 'users' => $users));
     }

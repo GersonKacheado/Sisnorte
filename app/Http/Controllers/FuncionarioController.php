@@ -13,16 +13,27 @@ class FuncionarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    
+        public function index(Request $request)
+        {
+            $query = Funcionario::query();
+    
+            $busca = $request->get('busca');
+            // usuario está tentando aplicar um filtro
+            if ($busca) {
+                $query = $query->where('nome', 'LIKE','%'. $busca .'%');
+            }
+    
+            $funcionarios = $query->orderBy('created_at','DESC')->paginate(10);
+    
+      
        
        
-       
-        $funcionarios = Funcionario::All();
+        //$funcionarios = Funcionario::All();
      //  $funcionarios = Funcionario::paginate(10);
    //  flash('Um novo registro de colaborador foi criadookook222 com Sucesso! <i class="fa fa-user" aria-hidden="true"></i>')->error()->important();
 
-        return view('funcionario.index', array('funcionarios' => $funcionarios, 'busca'=>null));
+        return view('funcionario.index', compact('funcionarios','busca'));
     
   
     }

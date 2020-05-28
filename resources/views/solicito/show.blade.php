@@ -36,15 +36,15 @@
                     <td>{{$solicito->funcionario_id}}</td>
                     <td>{{$solicito->empresa_id}}</td>
                         <td>
-                            <a href="{{ route('solicito.edit', $solicito->id) }}" class="btn btn-outline-warning">Atualizar Dados</a>
+                            <a href="{{ route('solicito.edit', $solicito->id) }}" class="btn btn-outline-warning py-3 px-4">Atualizar Dados</a>
                         </td>
                             <td>
                                 <form action="{{ route('solicito.destroy', $solicito->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                            <button type="submit" class="btn btn-outline-danger">Apagar</button>                        
+                            <button type="submit" class="btn btn-outline-danger py-3 px-4">Apagar</button>                        
                         </form>
-                        <a href="{{ route('pedidosAceitos') }}" class="btn btn-outline-info">Voltar</a>
+                        <a href="{{ route('pedidosAceitos') }}" class="btn btn-outline-info py-3 px-4">Voltar</a>
 
                             </td>   
                     </tr>

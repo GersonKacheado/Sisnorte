@@ -6,6 +6,8 @@
     <meta name="keywords" content="Sona, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="{{asset('img/fialig.jpg')}}" type="image/x-icon" />
+
         <title>Sistema Integrado de Serviços - SisNorte</title>
 
         <link href="{{asset('https://fonts.googleapis.com/css?family=Lora:400,700&display=swap')}}" rel="stylesheet">
@@ -294,8 +296,8 @@
 
                             <div class="d-flex">
                                 <div class="form-group ml-2">
-                                    <input type="submit" name="btnEnviar" class="btn btn-success">
-                                    <a href="{{ route('login') }}" class="btn btn-primary">Ir para login</a>
+                                    <input type="submit" name="btnEnviar" class="btn btn-success py-3 px-4">
+                                    <a href="{{ route('login') }}" class="btn btn-primary py-3 px-4">Ir para login</a>
                                 </div>
                             </div> 
                         </form>
@@ -590,7 +592,7 @@
                                 </div>
                                 <h5> - Sandra Regina Serra</h5>
                             </div>
-                            <img src="{{asset('img/testimonial-logo.png')}}" alt="">
+                            <img src="{{asset('img/logo.png')}}" alt="">
                         </div>
                         <div class="ts-item">
                             <p>Após a execução de dedetização em minha residência, obtive por meio da empresa as recomendações dos cuidados a serem tomados com crianças, animais e idosos para que não haja nenhuma prejudicação na saúde dos mesmo, isso fez perceber o zelo que a empresa tem com seus clientes.</p>
@@ -604,7 +606,7 @@
                                 </div>
                                 <h5> - Vanilda Inajosa</h5>
                             </div>
-                            <img src="{{asset('img/testimonial-logo.png')}}" alt="">
+                            <img src="{{asset('img/logo.png')}}" alt="">
                         </div>
                     </div>
                 </div>

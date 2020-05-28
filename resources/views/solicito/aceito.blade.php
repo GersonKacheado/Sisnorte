@@ -3,26 +3,35 @@
 <div class="container">
     <div class="card text-center">
         <div class="card-header">
-          {{--  Listagem de {{ $solicitos->count() }} Pedidos no total de {{ $solicitos->total() }} 
+            Listagem de {{ $solicitos->count() }} Serviços no total de {{ $solicitos->total() }} 
             exibindo agora registros de ({{ $solicitos->firstItem() }}) a ({{ $solicitos->lastItem() }})
-       --}} </div>
+        </div>
        <div class="card text-right">
+       {{-- <form method="GET" action="{{url('/solicito')}}">
+            <input name="busca" value="{{ $busca }}" type="text" placeholder="busca por Tipo...">
+            <button type="submit"><i class="icon_search"></i></button>
 
-        <form method="POST" action="{{url('/solicito/search')}}">
+            @if ($busca)
+                <a href="{{ url('/solicito') }}" class="btn btn-primary">Limpar</a>
+            @endif
+        </form>--}}
+
+       {{-- <form method="POST" action="{{url('/solicito/search')}}">
             @csrf
             <input name="busca" type="text" placeholder="busca por Tipo...">
             <button type="submit"><i class="icon_search"></i></button>
-            </form>
+            </form> --}}
     </div>
         <div class="card-body">
             <table class="table table-hover">
                 <thead>
-                    <th scope="col">CÓDIGO</th>
-                    <th scope="col">COD CLIENTE</th>
+                  <!--  <th scope="col">CÓDIGO</th> -->
+                    <th scope="col">CLIENTE</th>
+                    <th scope="col">CONTATO</th>
                     <th scope="col">TIPO</th>
                     <th scope="col">NA DATA</th>
                     <th scope="col">CIDADE</th>
-                    <th scope="col">BAIRRO</th>
+                    <th scope="col">LOGRADOURO</th>                    
                     <th colspan="2">GERENCIADOR</th>
                    
                 </thead>
@@ -33,13 +42,16 @@
                     @foreach ($solicitos as $solicito)
 
                     <tr>
-                        <td>{{ $solicito->id }}</td>
+                      {{--  <td>{{ $solicito->id }}</td> --}}
                     <td>{{$solicito->users->name}}</td>
+                    <td>{{$solicito->users->telefone}}</td>
+
+
                                          {{-- <td>{{ $solicito->users_id }}</td>   --}}                   
                         <td>{{ $solicito->tipo }}</td>
                         <td>{{ $solicito->data }}</td>
                         <td>{{ $solicito->municipio }}</td>
-                        <td>{{ $solicito->bairro}}</td>
+                        <td>Bairro: {{ $solicito->bairro}},</br> Rua: {{$solicito->rua}}, Nº {{$solicito->numero}}</td>
                         <td >
                            {{-- <form action="{{ route('aceito', $solicito->id) }}" method="POST" >
                                 @csrf
@@ -47,14 +59,14 @@
                                 <button type="submit" class="btn btn-outline-success">aceito</button>                        
 
                             </form> --}}
-                            <a href="{{ route('solicito.show', $solicito->id) }}" class="btn btn-outline-info">Detalhes</a>
-{{--                            <a href="{{ route('solicito.edit', $solicito->id) }}" class="btn btn-outline-warning">Editar</a>
---}}                        </td>
+{{--                             <a href="{{ route('solicito.show', $solicito->id) }}" class="btn btn-outline-info">Detalhes</a>
+--}}                            <a href="{{ route('solicito.edit', $solicito->id) }}" class="btn btn-outline-warning py-3 px-4">Atualizar</a>
+                       </td>
                         <td>
                             <form action="{{ route('cancela', $solicito->id) }}" method="POST" >
                                 @csrf
                                 @method('PATCH')
-                                <button type="submit" class="btn btn-outline-danger">cancelar</button>
+                                <button type="submit" class="btn btn-outline-danger py-3 px-4">cancelar</button>
                             </form> 
                         </td>
                        {{-- <td colspan="2">
@@ -79,8 +91,8 @@
 
 
         <div class="card-footer">
-       {{--     {{ $solicitos->links() }}
---}}        </div> 
+            {{ $solicitos->links() }}
+       </div> 
     </div>
 </div>
 {{--

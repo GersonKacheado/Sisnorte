@@ -3,17 +3,26 @@
 <div class="container">
     <div class="card text-center">
         <div class="card-header">
-           {{-- Listagem de {{ $funcionarios->count() }} colaboradores no total de {{ $funcionarios->total() }} 
-            exibindo agora registros de ({{ $funcionarios->firstItem() }}) a ({{ $funcionarios->lastItem() }}) --}}
+            Listagem de {{ $funcionarios->count() }} colaboradores no total de {{ $funcionarios->total() }} 
+            exibindo agora registros de ({{ $funcionarios->firstItem() }}) a ({{ $funcionarios->lastItem() }})
         </div>
         <div class="card text-right">
 
-            <form method="POST" action="{{url('/funcionario/search')}}">
+           {{-- <form method="POST" action="{{url('/funcionario/search')}}">
                 @csrf
                 <input name="busca" type="text" placeholder="busca por Profissão...">
                 <button type="submit"><i class="icon_search"></i></button>
                 </form>
-        </div>
+       --}} 
+       <form method="GET" action="{{url('/funcionario')}}">
+        <input name="busca" value="{{ $busca }}" type="text" placeholder="busca por Nome...">
+        <button type="submit"><i class="icon_search"></i></button>
+
+        @if ($busca)
+            <a href="{{ url('/funcionario') }}" class="btn btn-primary ">Limpar</a>
+        @endif
+    </form>
+    </div>
         <div class="card-body">
             <table class="table table-hover">
                 <thead>
@@ -52,9 +61,9 @@
                 </tbody>
             </table>
         </div>
-      {{--  <div class="card-footer">
+        <div class="card-footer">
             {{ $funcionarios->links() }}
         </div>
---}}    </div>
+   </div>
 </div>
 @endsection

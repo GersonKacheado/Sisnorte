@@ -3,19 +3,19 @@
 <div class="container">
     <div class="card text-center">
         <div class="card-header">
-   {{--         Listagem de {{ $solicitos->count() }} Pedidos no total de {{ $solicitos->total() }} 
+            Listagem de {{ $solicitos->count() }} Pedidos no total de {{ $solicitos->total() }} 
             exibindo agora registros de ({{ $solicitos->firstItem() }}) a ({{ $solicitos->lastItem() }})
-    --}}    </div>
+        </div>
         
        <div class="card text-right">
-        {{--<form method="GET" action="{{url('/solicito')}}">
+       {{-- <form method="GET" action="{{url('/solicito/search')}}">
             <input name="busca" value="{{ $busca }}" type="text" placeholder="busca por Tipo...">
             <button type="submit"><i class="icon_search"></i></button>
 
             @if ($busca)
-                <a href="{{ url('/solicito') }}" class="btn btn-primary">Limpar</a>
+                <a href="{{ url('/solicito/search') }}" class="btn btn-primary">Limpar</a>
             @endif
-        </form>--}}
+        </form> --}}
       
        {{-- <form method="POST" action="{{url('/solicito/search')}}">
             @csrf
@@ -55,21 +55,21 @@
                             <form action="{{ route('aceito', $solicito->id) }}" method="POST" >
                                 @csrf
                                 @method('PATCH')
-                                <button type="submit" class="btn btn-outline-success">ACEITAR</button>
+                                <button type="submit" class="btn btn-outline-success py-3 px-4">ACEITAR</button>
                             </form> 
                         </td>
                         {{--<td>
                             <a href="{{ route('solicito.show', $solicito->id) }}" class="btn btn-outline-info">Detalhes</a>
                             <a href="{{ route('solicito.edit', $solicito->id) }}" class="btn btn-outline-warning">Editar</a>
-                        </td>--
-                        <td colspan="2">
-                            {{--<form action="{{ route('solicito.destroy', $solicito->id) }}" method="POST">
+                        </td>--}}
+                        <td colspan="2"> 
+                            <form action="{{ route('solicito.destroy', $solicito->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                            <button type="submit" class="btn btn-outline-danger">Apagar</button>                        
-                        </form> --
-                        <a href="{{ route('solicito.show', $solicito->id) }}" class="btn btn-outline-info">Detalhes</a>
-
+                            <button type="submit" class="btn btn-outline-danger py-3 px-4">Descartar</button>                        
+                        </form>
+{{--                        <a href="{{ route('solicito.show', $solicito->id) }}" class="btn btn-outline-info">Detalhes</a>
+--}}
                         </td>
                         {{-- <td>1</td>
                         <td>1</td> --}}
@@ -86,7 +86,7 @@
 
 
         <div class="card-footer">
-          {{--  {{ $solicitos->links() }}  --}}
+          {{ $solicitos->links() }}
         </div> 
     </div>
 </div>

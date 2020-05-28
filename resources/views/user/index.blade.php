@@ -22,7 +22,7 @@
                 <button type="submit"><i class="icon_search"></i></button>
 
                 @if ($busca)
-                    <a href="{{ url('/user') }}" class="btn btn-primary">Limpar</a>
+                    <a href="{{ url('/user') }}" class="btn btn-primary ">Limpar</a>
                 @endif
             </form>
         </div>
@@ -42,9 +42,10 @@
                     <th scope="col">CÓDIGO</th>
                     <th scope="col">NOME</th>
                     <th scope="col">TELEFONE</th>
-                    <th colspan="2">GERENCIAR REGISTRO</th>
+                    <th scope="col">EMAIL</th>                 
+                    <th scope="col">GERENCIAR REGISTRO</th>
                     <th scope="col">
-                        <a href="{{ route('user.create') }}" class="btn btn-outline-success">+ Criar Novo</a>
+                        <a href="{{ route('user.create') }}" class="btn btn-outline-success py-3 px-4">+ Criar Novo</a>
                     </th>
                     {{-- <th scope="col">EMAIL</th>
                     <th scope="col">SENHA</th> --}}
@@ -60,13 +61,15 @@
                         <td>{{ $user->id }}</td>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->telefone }}</td>
-                        <td> 
+                        <td>{{ $user->email }}</td>
+
+                        {{-- <td> 
                             <form action="{{ route('user.destroy', $user->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-outline-danger">Apagar</button>                        
+                                <button type="submit" class="btn btn-outline-danger ">Apagar</button>                        
                             </form>
-                        </td>
+                        </td> --}}
                         <td>
                             <a href="{{ route('user.edit', $user->id) }}" class="btn btn-outline-warning">Editar</a>
                         </td>

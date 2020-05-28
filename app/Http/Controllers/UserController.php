@@ -28,7 +28,7 @@ class UserController extends Controller
             $query = $query->where('name', 'LIKE','%'. $busca .'%');
         }
 
-        $users = $query->paginate(10);
+        $users = $query->orderBy('updated_at','DESC')->paginate(10);
 
         return view('user.index', compact('users', 'busca'));
   
